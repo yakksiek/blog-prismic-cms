@@ -25,7 +25,9 @@ Utwórz blog, którego zawartość będzie pobierana przez [API Prismica](https:
 
 Dokumentacja zawiera opis narzędzi przeznaczonych dla danej technologii, np. [JavaScriptu](https://prismic.io/docs/technologies/integrating-with-an-existing-project-javascript), a nawet [Reacta](https://prismic.io/docs/technologies/start-a-prismic-project-from-scratch-with-reactjs).
 
-Udostępnia również [przydatne narzędzie](https://prismic.io/docs/technologies/the-rest-api-browser) do testowania zapytań pod adresem: `[nazwa-przestrzeni].prismic.io/api`. 
+Udostępnia również [przydatne narzędzie](https://prismic.io/docs/technologies/the-rest-api-browser) do testowania zapytań pod adresem: `[nazwa-przestrzeni].prismic.io/api`.
+
+> **Uwaga:** Być może zechcesz skorzystać z `create-react-app`. Pamiętaj wówczas, że od wersji 18 Reacta przy korzystaniu ze StrictMode w trybie developerskim możesz zauważyć dwukrotne uruchomienie hooka `useEffect()` lub metody `.componentDidMount()`. Zamiast wyłączać StrictMode, możesz zastosować [dobre praktyki fetchowania danych](https://beta.reactjs.org/learn/synchronizing-with-effects#fetching-data).
 
 ## Podstawowe założenia
 
