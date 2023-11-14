@@ -1,13 +1,15 @@
+/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 
-import articleImg from './../../../public/images/articleBanner.jpg';
+function Article({ data }) {
+    const { data: objData } = data;
+    console.log(objData);
 
-function Article({ photoUrl }) {
     return (
         <StyledArticleItem>
             <StyledWrapper>
                 <StyledImageWrapper>
-                    <img src={photoUrl} alt='london streets' />
+                    <img src='' alt='london streets' />
                 </StyledImageWrapper>
                 <StyledHeaderArticle>
                     <h4>Bustling London Streets</h4>

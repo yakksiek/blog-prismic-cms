@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import mainArticleImg from '../../../public/images/mainarticle.jpg';
+import mainArticleImg from '../../images/mainarticle-min.png';
 
 function HeroArticle() {
     return (

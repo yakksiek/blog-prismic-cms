@@ -1,13 +1,17 @@
 import styled from 'styled-components';
 import { UilTwitter, UilInstagram, UilRss } from '@iconscout/react-unicons';
+import { PrismicRichText, useFirstPrismicDocument, useAllPrismicDocumentsByType } from '@prismicio/react';
 
-import HeroArticle from './components/HeroArticle/HeroArticle';
+// import HeroArticle from './components/HeroArticle/HeroArticle';
 import Article from './components/Article';
 
-import londonImg from '../public/images/articleBanner.jpg';
-import mingImg from '../public/images/mindImg.png';
+// import londonImg from './images/articleBanner.jpg';
+// import mingImg from './images/mindImg.png';
 
 function App() {
+    const [document] = useAllPrismicDocumentsByType('post');
+    console.log(document);
+
     return (
         <>
             <StyledWrapper>
@@ -37,8 +41,9 @@ function App() {
             </StyledWrapper>
             <StyledWrapper>
                 <ul>
-                    <Article photoUrl={londonImg} />
-                    <Article photoUrl={mingImg} />
+                    {/* <Article photoUrl={londonImg} />
+                    <Article photoUrl={mingImg} /> */}
+                    {document && document.slice(0, 1).map(postData => <Article key={postData.id} data={postData} />)}
                 </ul>
             </StyledWrapper>
             {/* <HeroArticle /> */}
