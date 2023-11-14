@@ -43,7 +43,7 @@ function App() {
                 <ul>
                     {/* <Article photoUrl={londonImg} />
                     <Article photoUrl={mingImg} /> */}
-                    {document && document.slice(0, 1).map(postData => <Article key={postData.id} data={postData} />)}
+                    {document && document.map(postData => <Article key={postData.id} data={postData} />)}
                 </ul>
             </StyledWrapper>
             {/* <HeroArticle /> */}

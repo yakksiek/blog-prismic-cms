@@ -1,35 +1,40 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
+import * as h from '../../helpers';
+import * as prismicH from '@prismicio/helpers';
 
 function Article({ data }) {
     const { data: objData } = data;
-    console.log(objData);
+    const { date, paragraph, photo, title } = objData;
+
+    const paragraphText = prismicH.asText(paragraph);
+    const postTitle = prismicH.asText(title);
+    const postImg = prismicH.asImageSrc(photo);
+    const formattedDate = h.convertDateFormat(date);
 
     return (
         <StyledArticleItem>
             <StyledWrapper>
                 <StyledImageWrapper>
-                    <img src='' alt='london streets' />
+                    <img src={postImg} alt={photo.alt} />
                 </StyledImageWrapper>
                 <StyledHeaderArticle>
-                    <h4>Bustling London Streets</h4>
-                    <p>
-                        In Blackstock Road you can travel and taste the world, from Africa to the Middle East and Asia,
-                        before finally landing in Europe. The choice is infinite, global and unpretentious.
-                    </p>
-                    <StyledArticleInfo>
+                    <h4>{postTitle}</h4>
+                    <p>{paragraphText}</p>
+                    <StyledArticleMetaInfo>
                         <ul className='info'>
                             <li>
-                                <span className='info-item'>Date:</span>16, March 2023
+                                <span className='info__item'>Date:</span>
+                                {formattedDate}
                             </li>
                             <li>
-                                <span className='info-item'>Duration:</span>10 Min
+                                <span className='info__item'>Duration:</span>10 Min
                             </li>
                         </ul>
                         <ul className='category'>
-                            <li className='category-item'>TRAVEL</li>
+                            <li className='category__item'>TRAVEL</li>
                         </ul>
-                    </StyledArticleInfo>
+                    </StyledArticleMetaInfo>
                 </StyledHeaderArticle>
             </StyledWrapper>
         </StyledArticleItem>
@@ -38,7 +43,6 @@ function Article({ data }) {
 
 const StyledArticleItem = styled.li`
     border-bottom: 0.5px solid black;
-    /* border-top: 0.5px solid black; */
     height: 250px;
     padding: 2.5rem 0;
     width: 70%;
@@ -72,7 +76,7 @@ const StyledHeaderArticle = styled.header`
     }
 `;
 
-const StyledArticleInfo = styled.div`
+const StyledArticleMetaInfo = styled.div`
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
@@ -83,12 +87,12 @@ const StyledArticleInfo = styled.div`
         gap: 1rem;
     }
 
-    .info-item {
+    .info__item {
         font-family: var(--font-extra-bold);
         margin-right: 0.25rem;
     }
 
-    .category-item {
+    .category__item {
         border: 1px solid black;
         border-radius: 100vh;
         padding: 0.25rem 0.5rem;
