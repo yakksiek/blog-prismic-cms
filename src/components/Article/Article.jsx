@@ -4,6 +4,7 @@ import * as h from '../../helpers';
 import * as prismicH from '@prismicio/helpers';
 
 function Article({ data }) {
+    console.log(data);
     const { data: objData } = data;
     const { date, paragraph, photo, title } = objData;
 

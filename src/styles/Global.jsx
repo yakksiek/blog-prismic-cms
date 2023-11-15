@@ -27,6 +27,11 @@ const GlobalStyles = createGlobalStyle`
     font-size: 2rem;
   }
 
+  a {
+    text-decoration: none;
+    color: #000
+  }
+
   ul {
     list-style: none;
   }
