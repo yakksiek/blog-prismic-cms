@@ -11,7 +11,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    background-color: #F9F6F0;
+    background-color: #fff;
     font-family: var(--font-ultra-light);
   }
 
@@ -25,6 +25,10 @@ const GlobalStyles = createGlobalStyle`
 
   h4 {
     font-size: 2rem;
+  }
+
+  h5 {
+    font-size: 1.75rem;
   }
 
   a {

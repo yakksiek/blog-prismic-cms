@@ -22,3 +22,13 @@ export function convertDateFormat(dateStr) {
 
     return `${day}, ${month} ${year}`;
 }
+
+export function estimateReadingTime(paragraphsArr) {
+    const text = paragraphsArr.map(text => text.text).join(',');
+    const wordsPerMinute = 200;
+    const words = text.split(/\s+/);
+    const wordCount = words.length;
+    const readingTimeMinutes = wordCount / wordsPerMinute;
+
+    return Math.ceil(readingTimeMinutes);
+}

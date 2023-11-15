@@ -4,46 +4,41 @@ import mainArticleImg from '../../images/mainarticle-min.png';
 
 function HeroArticle() {
     return (
-        <StyledWrapper>
-            <StyledHeroArticle>
-                <StyledImageWrapper>
-                    <img src={mainArticleImg} alt='main article img - eyes' />
-                </StyledImageWrapper>
-                <StyledHeaderArticle>
-                    <h2>DON&apos;T CLOSE YOUR EYES</h2>
-                    <StyledArticleContent>
-                        <p>
-                            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto qui atque placeat nam
-                            ex officia blanditiis modi voluptas culpa quae doloribus, illum odit quibusdam accusantium
-                            quas reprehenderit necessitatibus sunt perspiciatis.
-                        </p>
-                        <StyledArticleInfo>
-                            <ul className='info'>
-                                <li>
-                                    <span className='info-item'>Date:</span>16, March 2022
-                                </li>
-                                <li>
-                                    <span className='info-item'>Duration:</span>5 Min
-                                </li>
-                            </ul>
-                            <ul className='category'>
-                                <li className='category-item'>LABEL</li>
-                            </ul>
-                        </StyledArticleInfo>
-                    </StyledArticleContent>
-                </StyledHeaderArticle>
-            </StyledHeroArticle>
-        </StyledWrapper>
+        <StyledHeroArticle>
+            <StyledImageWrapper>
+                <img src={mainArticleImg} alt='main article img - eyes' />
+            </StyledImageWrapper>
+            <StyledHeaderArticle>
+                <h2>DON&apos;T CLOSE YOUR EYES</h2>
+                <StyledArticleContent>
+                    <p>
+                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto qui atque placeat nam ex
+                        officia blanditiis modi voluptas culpa quae doloribus, illum odit quibusdam accusantium quas
+                        reprehenderit necessitatibus sunt perspiciatis.
+                    </p>
+                    <StyledArticleInfo>
+                        <ul className='info'>
+                            <li>
+                                <span className='info-item'>Date:</span>16, March 2022
+                            </li>
+                            <li>
+                                <span className='info-item'>Duration:</span>5 Min
+                            </li>
+                        </ul>
+                        <ul className='category'>
+                            <li className='category-item'>lifestyle</li>
+                        </ul>
+                    </StyledArticleInfo>
+                </StyledArticleContent>
+            </StyledHeaderArticle>
+        </StyledHeroArticle>
     );
 }
 
-const StyledWrapper = styled.div`
-    max-width: 1200px;
-    margin: 1rem auto;
-`;
-
 const StyledHeroArticle = styled.section`
     display: flex;
+    flex-direction: column-reverse;
+    margin: 4rem 0;
 `;
 
 const StyledHeaderArticle = styled.header`

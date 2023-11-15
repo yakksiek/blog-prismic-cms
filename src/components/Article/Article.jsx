@@ -2,16 +2,18 @@
 import styled from 'styled-components';
 import * as h from '../../helpers';
 import * as prismicH from '@prismicio/helpers';
+import { Link } from 'react-router-dom';
+import { PrismicRichText } from '@prismicio/react';
 
 function Article({ data }) {
-    console.log(data);
-    const { data: objData } = data;
-    const { date, paragraph, photo, title } = objData;
+    const { data: objData, uid } = data;
+    const { date, article_lead, photo, title, article_content } = objData;
 
-    const paragraphText = prismicH.asText(paragraph);
+    const leadText = prismicH.asText(article_lead);
     const postTitle = prismicH.asText(title);
     const postImg = prismicH.asImageSrc(photo);
     const formattedDate = h.convertDateFormat(date);
+    const estimatedTime = h.estimateReadingTime(article_content);
 
     return (
         <StyledArticleItem>
@@ -20,8 +22,11 @@ function Article({ data }) {
                     <img src={postImg} alt={photo.alt} />
                 </StyledImageWrapper>
                 <StyledHeaderArticle>
-                    <h4>{postTitle}</h4>
-                    <p>{paragraphText}</p>
+                    <Link to={`/blog/${uid}`}>
+                        <h4>{postTitle}</h4>
+                    </Link>
+                    <p>{leadText}</p>
+                    {/* <PrismicRichText field={article_content} /> */}
                     <StyledArticleMetaInfo>
                         <ul className='info'>
                             <li>
@@ -29,7 +34,8 @@ function Article({ data }) {
                                 {formattedDate}
                             </li>
                             <li>
-                                <span className='info__item'>Duration:</span>10 Min
+                                <span className='info__item'>Duration:</span>
+                                {estimatedTime} Min
                             </li>
                         </ul>
                         <ul className='category'>

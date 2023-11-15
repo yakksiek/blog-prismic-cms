@@ -20,6 +20,9 @@ function App() {
                 <Route path='/about'>
                     <About />
                 </Route>
+                <Route path='/blog'>
+                    <About />
+                </Route>
             </Layout>
         </Router>
     );
