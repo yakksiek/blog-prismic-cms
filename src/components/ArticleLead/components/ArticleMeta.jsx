@@ -1,20 +1,26 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-function ArticleMeta({ formattedDate, estimatedTime, category }) {
-    const categoryName = category && category.split('-')[1].toUpperCase();
+function ArticleMeta({ metaData }) {
+    const { date, duration, category } = metaData;
+    const categoryName = category && category.split('-')[1];
 
     return (
         <StyledMetaList className='meta'>
             <li>
                 <span className='meta__item'>Date:</span>
-                {formattedDate}
+                {date}
             </li>
             <li>
                 <span className='meta__item'>Duration:</span>
-                {estimatedTime} Min
+                {duration} Min
             </li>
-            {category !== '' && <li className='meta__item meta__item--category'>{categoryName}</li>}
+            {category !== '' && (
+                <Link to={`/blog?category=${categoryName}`} className='meta__item meta__item--category'>
+                    {categoryName.toUpperCase()}
+                </Link>
+            )}
         </StyledMetaList>
     );
 }

@@ -8,9 +8,7 @@ import ArticleMeta from './components/ArticleMeta';
 import { StyledArticleItem, StyledHeaderArticle, StyledHeaderBottom, StyledImageWrapper } from './ArticleLead.styled';
 
 function ArticleLead({ data }) {
-    // console.log(data);
-    const { uid, leadText, postTitle, imgAltText, imgSrc, formattedDate, estimatedTime, categoryName } =
-        h.getArticleData(data);
+    const { uid, leadText, postTitle, imgAltText, imgSrc, metaData } = h.getArticleData(data);
 
     return (
         <StyledArticleItem>
@@ -21,7 +19,7 @@ function ArticleLead({ data }) {
                 <StyledHeaderBottom>
                     <p className='article-lead'>{leadText}</p>
 
-                    <ArticleMeta formattedDate={formattedDate} estimatedTime={estimatedTime} category={categoryName} />
+                    <ArticleMeta metaData={metaData} />
                 </StyledHeaderBottom>
             </StyledHeaderArticle>
             <StyledImageWrapper>

@@ -47,15 +47,19 @@ export function getArticleData(data) {
     const imgAltText = photo.alt;
     const categoryName = category.uid ? category.uid : '';
 
+    const metaData = {
+        date: formattedDate,
+        duration: estimatedTime,
+        category: categoryName,
+    };
+
     return {
         uid,
         leadText,
         postTitle,
         imgSrc,
-        formattedDate,
-        estimatedTime,
         articleContent: article_content,
         imgAltText,
-        categoryName,
+        metaData,
     };
 }
