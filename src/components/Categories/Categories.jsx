@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
 function Categories({ categories }) {
     return (
@@ -14,6 +15,10 @@ function Categories({ categories }) {
         </StyledSection>
     );
 }
+
+Categories.propTypes = {
+    categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+};
 
 const StyledSection = styled.div`
     background-color: #000;

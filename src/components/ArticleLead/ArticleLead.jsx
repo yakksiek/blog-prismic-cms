@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import * as h from '../../helpers';
-import * as prismicH from '@prismicio/helpers';
+// import * as prismicH from '@prismicio/helpers';
 import { Link } from 'react-router-dom';
-import { PrismicRichText } from '@prismicio/react';
+// import { PrismicRichText } from '@prismicio/react';
 
 import ArticleMeta from './components/ArticleMeta';
 import { StyledArticleItem, StyledHeaderArticle, StyledHeaderBottom, StyledImageWrapper } from './ArticleLead.styled';

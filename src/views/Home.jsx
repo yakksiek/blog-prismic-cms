@@ -4,7 +4,7 @@ import * as prismicH from '@prismicio/helpers';
 
 import Categories from '../components/Categories';
 import Article from '../components/ArticleLead';
-import HeroArticle from '../components/HeroArticle';
+// import HeroArticle from '../components/HeroArticle';
 
 function Home() {
     const [hero] = useSinglePrismicDocument('hero');

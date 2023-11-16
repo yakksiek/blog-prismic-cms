@@ -1,6 +1,6 @@
-/* eslint-disable react/prop-types */
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 function ArticleMeta({ metaData }) {
     const { date, duration, category } = metaData;
@@ -24,6 +24,14 @@ function ArticleMeta({ metaData }) {
         </StyledMetaList>
     );
 }
+
+ArticleMeta.propTypes = {
+    metaData: PropTypes.shape({
+        date: PropTypes.string.isRequired,
+        duration: PropTypes.number.isRequired,
+        category: PropTypes.string.isRequired,
+    }),
+};
 
 const StyledMetaList = styled.ul`
     align-items: center;
