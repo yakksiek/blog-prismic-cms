@@ -31,6 +31,10 @@ const GlobalStyles = createGlobalStyle`
     font-size: 1.75rem;
   }
 
+  h6 {
+    font-size: 1.15rem;
+  }
+
   a {
     text-decoration: none;
     color: #000
