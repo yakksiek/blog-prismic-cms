@@ -3,7 +3,7 @@ import { useSinglePrismicDocument, useAllPrismicDocumentsByType } from '@prismic
 import * as prismicH from '@prismicio/helpers';
 
 import Categories from '../components/Categories';
-import Article from '../components/Article';
+import Article from '../components/ArticleLead';
 import HeroArticle from '../components/HeroArticle';
 
 function Home() {
