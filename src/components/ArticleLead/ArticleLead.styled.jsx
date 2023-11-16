@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const StyledArticleItem = styled.li`
     border-bottom: 0.5px solid black;
@@ -25,25 +25,6 @@ export const StyledHeaderBottom = styled.div`
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
-
-    .info {
-        align-items: center;
-        display: flex;
-        gap: 2rem;
-    }
-
-    .info__item {
-        font-family: var(--font-extra-bold);
-        margin-right: 0.25rem;
-
-        &--category {
-            border: 1px solid black;
-            border-radius: 100vh;
-            padding: 0.25rem 0.5rem;
-            font-size: 0.75rem;
-            margin-left: auto;
-        }
-    }
 `;
 
 export const StyledImageWrapper = styled.div`

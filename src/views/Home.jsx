@@ -9,9 +9,11 @@ import HeroArticle from '../components/HeroArticle';
 function Home() {
     const [hero] = useSinglePrismicDocument('hero');
     const [posts] = useAllPrismicDocumentsByType('post');
+    const [categories] = useAllPrismicDocumentsByType('category');
 
-    if (!hero || !posts) return;
+    if (!hero || !posts || !categories) return;
 
+    const categoriesArr = categories.map(item => prismicH.asText(item.data.category_name));
     const blogName = prismicH.asText(hero.data.blog_title);
 
     const renderPosts = posts => {
@@ -22,7 +24,7 @@ function Home() {
         <>
             <hr />
             <StyledH1>{blogName.toUpperCase()}</StyledH1>
-            <Categories categories={['lifestyle', 'books', 'reviews']} />
+            <Categories categories={categoriesArr} />
             <section>
                 <ul>{renderPosts(posts)}</ul>
             </section>
