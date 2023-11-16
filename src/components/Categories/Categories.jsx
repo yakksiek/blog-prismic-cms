@@ -1,9 +1,10 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
-function Categories({ categories }) {
+function Categories({ categories, variant }) {
+    console.log(variant);
     return (
-        <StyledSection>
+        <StyledSection $variant={variant}>
             <h5>Categories</h5>
             <ul className='categories-list'>
                 {categories.map((item, index) => (
@@ -18,6 +19,7 @@ function Categories({ categories }) {
 
 Categories.propTypes = {
     categories: PropTypes.arrayOf(PropTypes.string).isRequired,
+    variant: PropTypes.string.isRequired,
 };
 
 const StyledSection = styled.div`
@@ -39,6 +41,17 @@ const StyledSection = styled.div`
             border-radius: 100vh;
         }
     }
+
+    ${({ $variant }) =>
+        $variant === 'light' &&
+        css`
+            background-color: #fff;
+            color: #000;
+
+            .categories-list__item {
+                border-color: #000;
+            }
+        `}
 `;
 
 export default Categories;

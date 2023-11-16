@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import styled from 'styled-components';
-import { UilTwitter, UilInstagram, UilRss } from '@iconscout/react-unicons';
-import { PrismicText, PrismicLink } from '@prismicio/react';
+// import { UilTwitter, UilInstagram, UilRss } from '@iconscout/react-unicons';
+// import { PrismicText, PrismicLink } from '@prismicio/react';
 import { NavLink } from 'react-router-dom';
 
 function Header({ menuDoc }) {

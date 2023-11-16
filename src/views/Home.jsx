@@ -1,8 +1,7 @@
-import styled from 'styled-components';
 import { useSinglePrismicDocument, useAllPrismicDocumentsByType } from '@prismicio/react';
 import * as prismicH from '@prismicio/helpers';
 
-import Categories from '../components/Categories';
+import Hero from '../components/Hero';
 import Article from '../components/ArticleLead';
 // import HeroArticle from '../components/HeroArticle';
 
@@ -22,21 +21,12 @@ function Home() {
 
     return (
         <>
-            <hr />
-            <StyledH1>{blogName.toUpperCase()}</StyledH1>
-            <Categories categories={categoriesArr} />
+            <Hero sectionName={blogName} categoriesArr={categoriesArr} variant='dark' />
             <section>
                 <ul>{renderPosts(posts)}</ul>
             </section>
         </>
     );
 }
-
-const StyledH1 = styled.h1`
-    font-family: var(--font-extra-bold);
-    letter-spacing: 5px;
-    font-size: clamp(4rem, 17vw, 13rem);
-    text-align: center;
-`;
 
 export default Home;
