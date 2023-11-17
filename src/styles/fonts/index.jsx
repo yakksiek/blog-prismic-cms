@@ -6,6 +6,9 @@ import GeneralSansExtraLightWoff2 from './GeneralSans-Extralight.woff2';
 import GeneralSansMediumWoff from './GeneralSans-Medium.woff';
 import GeneralSansMediumWoff2 from './GeneralSans-Medium.woff2';
 
+import GeneralSansRegularWoff from './GeneralSans-Regular.woff';
+import GeneralSansRegularWoff2 from './GeneralSans-Regular.woff2';
+
 import GeneralSansSemiBoldWoff from './GeneralSans-Semibold.woff';
 import GeneralSansSemiBoldWoff2 from './GeneralSans-Semibold.woff2';
 
@@ -15,21 +18,24 @@ const fontFiles = [
         woff: GeneralSansExtraLightWoff,
         woff2: GeneralSansExtraLightWoff2,
         style: 'normal',
-        weight: '200', 
     },
     {
         family: 'GeneralSansMedium',
         woff: GeneralSansMediumWoff,
         woff2: GeneralSansMediumWoff2,
         style: 'normal',
-        weight: '500', 
+    },
+    {
+        family: 'GeneralSansRegular',
+        woff: GeneralSansRegularWoff,
+        woff2: GeneralSansRegularWoff2,
+        style: 'normal',
     },
     {
         family: 'GeneralSansSemiBold',
         woff: GeneralSansSemiBoldWoff,
         woff2: GeneralSansSemiBoldWoff2,
         style: 'normal',
-        weight: '600', 
     },
 ];
 

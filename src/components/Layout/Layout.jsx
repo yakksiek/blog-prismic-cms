@@ -1,10 +1,9 @@
-import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 
-import Header from '../Header';
 import Footer from '../Footer';
 
-function Layout({ children, menuDoc }) {
+function Layout({ children }) {
     return (
         <StyledWrapper>
             {children}
@@ -13,9 +12,14 @@ function Layout({ children, menuDoc }) {
     );
 }
 
+Layout.propTypes = {
+    children: PropTypes.node.isRequired,
+};
+
 const StyledWrapper = styled.div`
     max-width: 1200px;
     margin: 1rem auto;
+    padding: 0 2rem;
 `;
 
 export default Layout;

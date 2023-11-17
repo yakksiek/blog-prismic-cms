@@ -63,3 +63,17 @@ export function getArticleData(data) {
         metaData,
     };
 }
+
+export function sortPostsByDate(objectsArr) {
+    return objectsArr.sort((a, b) => {
+        if (a.data.date && b.data.date) {
+            return b.data.date.localeCompare(a.data.date);
+        } else if (a.data && a.data.date) {
+            return -1;
+        } else if (b.data && b.data.date) {
+            return 1;
+        } else {
+            return 0;
+        }
+    });
+}

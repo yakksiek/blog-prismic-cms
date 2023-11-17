@@ -9,7 +9,11 @@ export const StyledSection = styled.div`
     align-items: center;
     justify-content: space-between;
 
-    .categories-list {
+    .categories__label {
+        margin-bottom: 0;
+    }
+
+    .list {
         display: flex;
         gap: 1.2rem;
 
