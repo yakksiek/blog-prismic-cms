@@ -1,11 +1,12 @@
 import { useAllPrismicDocumentsByType, PrismicRichText } from '@prismicio/react';
 import { useParams, Link, useHistory } from 'react-router-dom';
 import styled from 'styled-components';
-import { UilArrowRight } from '@iconscout/react-unicons';
+import { UilArrowRight, UilArrowLeft } from '@iconscout/react-unicons';
 
 import * as h from '../helpers';
 import ArticleMeta from '../components/ArticleLead/components/ArticleMeta';
 import ArticleLead from '../components/ArticleLead';
+import Button from '../components/Button';
 
 function ArticlePage() {
     const history = useHistory();
@@ -26,9 +27,9 @@ function ArticlePage() {
     return (
         <section>
             <StyledNav className='margin-bottom-large'>
-                <button type='button' onClick={handleGoBack}>
-                    Go back
-                </button>
+                <Button type='button' clickHandler={handleGoBack}>
+                    <UilArrowLeft /> GO BACK
+                </Button>
                 <Link to='/blog'>
                     <h4>BLOG</h4>
                 </Link>
@@ -68,6 +69,11 @@ function ArticlePage() {
 const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
+
+    button:hover svg {
+        transform: translateX(-5px);
+        transition: transform 0.3s;
+    }
 `;
 
 const StyledHeader = styled.div`
@@ -189,7 +195,7 @@ const StyledBodyFooter = styled.div`
     .footer__link {
         display: flex;
         align-items: center;
-        font-size: 1.25rem;
+        font-size: var(--font-size-button);
         font-family: var(--font-extra-bold);
         border-bottom: 1px solid transparent;
         transition: border-color 0.3s;

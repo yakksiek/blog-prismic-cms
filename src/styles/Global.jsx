@@ -9,6 +9,7 @@ const GlobalStyles = createGlobalStyle`
     --margin-bottom-large: 4rem;
     --margin-bottom: 2rem;
     --margin-bottom-small: 1rem;
+    --font-size-button: 1.25rem;
   }
 
   * {
