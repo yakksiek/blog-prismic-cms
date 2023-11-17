@@ -1,8 +1,6 @@
 /* eslint-disable react/prop-types */
 import * as h from '../../helpers';
-// import * as prismicH from '@prismicio/helpers';
 import { Link } from 'react-router-dom';
-// import { PrismicRichText } from '@prismicio/react';
 
 import ArticleMeta from './components/ArticleMeta';
 import { StyledArticleItem, StyledHeaderArticle, StyledHeaderBottom, StyledImageWrapper } from './ArticleLead.styled';
@@ -12,19 +10,18 @@ function ArticleLead({ data }) {
 
     return (
         <StyledArticleItem>
+            <StyledImageWrapper>
+                <img className='article__img' src={imgSrc} alt={imgAltText} />
+            </StyledImageWrapper>
             <StyledHeaderArticle>
                 <Link to={`/blog/${uid}`}>
                     <h4>{postTitle}</h4>
                 </Link>
+                <p className='article__lead'>{leadText}</p>
                 <StyledHeaderBottom>
-                    <p className='article-lead'>{leadText}</p>
-
                     <ArticleMeta metaData={metaData} />
                 </StyledHeaderBottom>
             </StyledHeaderArticle>
-            <StyledImageWrapper>
-                <img className='article-img' src={imgSrc} alt={imgAltText} />
-            </StyledImageWrapper>
         </StyledArticleItem>
     );
 }

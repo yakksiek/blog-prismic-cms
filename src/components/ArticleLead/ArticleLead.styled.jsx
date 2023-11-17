@@ -2,21 +2,30 @@ import styled from 'styled-components';
 
 export const StyledArticleItem = styled.li`
     border-bottom: 0.5px solid black;
-    height: 300px;
+    min-height: 300px;
     padding: 2.5rem 0;
     display: flex;
-    flex-direction: row-reverse;
+    flex-direction: row;
     gap: 2rem;
+
+    @media screen and (max-width: 600px) {
+        display: block;
+    }
 `;
 
 export const StyledHeaderArticle = styled.header`
     flex: 4;
-    height: 100%;
-    display: grid;
-    grid-template-rows: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 
-    .article-lead {
+    .header__title {
+        margin-bottom: var(--margin-bottom);
+    }
+
+    .article__lead {
         line-height: 1.5rem;
+        margin-bottom: var(--margin-bottom);
     }
 `;
 
@@ -24,16 +33,19 @@ export const StyledHeaderBottom = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 100%;
 `;
 
 export const StyledImageWrapper = styled.div`
     flex: 1;
-    height: 100%;
 
-    .article-img {
-        height: 100%;
+    .article__img {
+        max-width: 220px;
         object-fit: cover;
         aspect-ratio: 1;
+
+        @media screen and (max-width: 600px) {
+            max-width: 100%;
+            margin-bottom: var(--margin-bottom-small);
+        }
     }
 `;
