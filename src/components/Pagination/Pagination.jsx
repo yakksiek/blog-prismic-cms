@@ -1,9 +1,10 @@
-/* eslint-disable react/prop-types */
-import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
-import * as h from '../../helpers';
+import PropTypes from 'prop-types';
 
-function PaginationPagination({ children, limit, variant = 'both' }) {
+import * as h from '../../helpers';
+import { StyledNav } from './Pagination.styled';
+
+function Pagination({ children, limit, variant = 'both' }) {
     const location = useLocation();
     const length = children.length;
     const renderNumbers = variant === 'both' || variant === 'numbers';
@@ -66,38 +67,14 @@ function PaginationPagination({ children, limit, variant = 'both' }) {
     );
 }
 
-const StyledNav = styled.nav`
-    margin-top: var(--margin-bottom-small);
-    margin-bottom: var(--margin-bottom-large);
-    display: flex;
-    gap: 2rem;
-    justify-content: ${({ $variant }) => ($variant === 'text' ? 'space-between' : 'center')};
-    align-items: center;
+Pagination.defaultPropTypes = {
+    variant: 'both',
+};
 
-    .link-item {
-        padding: 0.5rem 1rem;
-        border: 1px solid transparent;
-        border-radius: 50%;
-        aspect-ratio: 1;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        display: flex;
-    }
+Pagination.propTypes = {
+    children: PropTypes.node.isRequired,
+    limit: PropTypes.number.isRequired,
+    variant: PropTypes.string,
+};
 
-    .link-item.disabled {
-        visibility: hidden;
-    }
-
-    .link-item:hover {
-        transform: scale(1.1);
-        transition: transform 0.3s;
-    }
-
-    .link-item--active {
-        border-color: #000;
-        font-family: var(--font-extra-bold);
-    }
-`;
-
-export default PaginationPagination;
+export default Pagination;
