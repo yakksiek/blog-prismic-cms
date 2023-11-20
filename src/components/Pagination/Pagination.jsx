@@ -17,39 +17,41 @@ function PaginationPagination({ children, limit }) {
     const begin = limit * (currentPage - 1);
     const end = currentPage * limit;
 
-    const { pageNumbers } = h.generatePaginationData(currentPage, limit, length);
+    const { prevPage, nextPage, pageNumbers, pages, isPrevDisabled, isNextDisabled } = h.generatePaginationData(
+        currentPage,
+        limit,
+        length,
+    );
 
     console.log(pageNumbers);
-    const paginationNumbers = pageNumbers.map((number, index) => {
-        if (number === '...') {
-            return <li key={index}>...</li>;
-        } else {
-            const activeClass = currentPage === number ? 'link-item--active' : '';
-            return (
-                <li key={index} className={`${activeClass} link-item`}>
-                    <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
-                </li>
-            );
-        }
-    });
+    // const paginationNumbers = pageNumbers.map((number, index) => {
+    //     if (number === '...') {
+    //         return <li key={index}>...</li>;
+    //     } else {
+    //         const activeClass = currentPage === number ? 'link-item--active' : '';
+    //         return (
+    //             <li key={index} className={`${activeClass} link-item`}>
+    //                 <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
+    //             </li>
+    //         );
+    //     }
+    // });
 
     return (
         <>
             <ul>{children.slice(begin, end)}</ul>
             <StyledNav>
-                {/* {currentPage > 1 && (
-                    <li className='link-item'>
-                        <Link to={`${location.pathname}?page=${prevPage}`}>
-                            <p>Prev Page</p>
-                        </Link>
-                    </li>
-                )} */}
-                {paginationNumbers}
-                {/* {currentPage < pages && (
-                    <li className='link-item'>
-                        <Link to={`${location.pathname}?page=${nextPage}`}>Next Page</Link>
-                    </li>
-                )} */}
+                <li className={`link-item ${isPrevDisabled ? 'disabled' : ''}`}>
+                    <Link to={`${location.pathname}?page=${prevPage}`}>
+                        <p>Prev Page</p>
+                    </Link>
+                </li>
+
+                {/* {paginationNumbers} */}
+
+                <li className={`link-item ${isNextDisabled ? 'disabled' : ''}`}>
+                    <Link to={`${location.pathname}?page=${nextPage}`}>Next Page</Link>
+                </li>
             </StyledNav>
         </>
     );
@@ -60,7 +62,7 @@ const StyledNav = styled.nav`
     margin-bottom: var(--margin-bottom-large);
     display: flex;
     gap: 2rem;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
 
     .link-item {
@@ -70,6 +72,10 @@ const StyledNav = styled.nav`
         aspect-ratio: 1;
         display: flex;
         align-items: center;
+    }
+
+    .link-item.disabled {
+        visibility: hidden;
     }
 
     .link-item:hover {

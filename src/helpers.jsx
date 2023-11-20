@@ -111,5 +111,8 @@ export function generatePaginationData(currentPage, limit, length) {
         return rangeWithDots;
     };
 
-    return { prevPage, nextPage, pageNumbers: generatePageNumbers() };
+    const isPrevDisabled = currentPage <= 1;
+    const isNextDisabled = currentPage >= pages;
+
+    return { prevPage, nextPage, pageNumbers: generatePageNumbers(), pages, isPrevDisabled, isNextDisabled };
 }

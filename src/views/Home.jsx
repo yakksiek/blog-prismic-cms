@@ -25,7 +25,7 @@ function Home() {
             <Hero sectionName={blogName} categoriesArr={categoriesArr} variant='dark' />
             <section>
                 <ul>
-                    <Pagination limit={6}>{renderLeads(posts)}</Pagination>
+                    <Pagination limit={2}>{renderLeads(posts)}</Pagination>
                 </ul>
             </section>
         </>
