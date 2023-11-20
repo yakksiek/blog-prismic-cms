@@ -6,6 +6,7 @@ import About from './views/About';
 import Layout from './components/Layout';
 import Header from './components/Header';
 import ArticlePage from './views/ArticlePage';
+import Blog from './views/Blog';
 
 function App() {
     const [document] = useAllPrismicDocumentsByType('post');
@@ -23,7 +24,7 @@ function App() {
                         <About />
                     </Route>
                     <Route exact path='/blog'>
-                        <About />
+                        <Blog />
                     </Route>
                     <Route path='/blog/:articleUID'>
                         <ArticlePage />

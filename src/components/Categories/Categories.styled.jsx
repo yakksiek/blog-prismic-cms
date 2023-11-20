@@ -31,7 +31,7 @@ export const StyledSection = styled.div`
             background-color: #fff;
             color: #000;
 
-            .categories-list__item {
+            .list__item {
                 border-color: #000;
                 color: inherit;
             }

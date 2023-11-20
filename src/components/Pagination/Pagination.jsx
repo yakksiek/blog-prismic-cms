@@ -3,55 +3,64 @@ import styled from 'styled-components';
 import { Link, useLocation } from 'react-router-dom';
 import * as h from '../../helpers';
 
-function PaginationPagination({ children, limit }) {
+function PaginationPagination({ children, limit, variant = 'both' }) {
     const location = useLocation();
     const length = children.length;
+    const renderNumbers = variant === 'both' || variant === 'numbers';
+    const renderText = variant === 'both' || variant === 'text';
 
-    const getSearchParams = searchString => {
-        return new URLSearchParams(searchString);
-    };
-
-    const searchParams = getSearchParams(location.search);
-    const currentPage = Number(searchParams.get('page')) || 1;
+    const pageParam = h.getSearchParam('page', location.search);
+    const currentPage = Number(pageParam) || 1;
 
     const begin = limit * (currentPage - 1);
     const end = currentPage * limit;
 
-    const { prevPage, nextPage, pageNumbers, pages, isPrevDisabled, isNextDisabled } = h.generatePaginationData(
+    const { prevPage, nextPage, pageNumbers, isPrevDisabled, isNextDisabled, pages } = h.generatePaginationData(
         currentPage,
         limit,
         length,
     );
 
-    console.log(pageNumbers);
-    // const paginationNumbers = pageNumbers.map((number, index) => {
-    //     if (number === '...') {
-    //         return <li key={index}>...</li>;
-    //     } else {
-    //         const activeClass = currentPage === number ? 'link-item--active' : '';
-    //         return (
-    //             <li key={index} className={`${activeClass} link-item`}>
-    //                 <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
-    //             </li>
-    //         );
-    //     }
-    // });
+    const paginationNumbers = pageNumbers.map((number, index) => {
+        if (number === '...') {
+            return (
+                <li className='link-item' key={index}>
+                    ...
+                </li>
+            );
+        } else {
+            const activeClass = currentPage === number ? 'link-item--active' : '';
+            return (
+                <li key={index} className={`${activeClass} link-item`}>
+                    <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
+                </li>
+            );
+        }
+    });
+
+    if (pages === 1) {
+        return <ul>{children.slice(begin, end)}</ul>;
+    }
 
     return (
         <>
             <ul>{children.slice(begin, end)}</ul>
-            <StyledNav>
-                <li className={`link-item ${isPrevDisabled ? 'disabled' : ''}`}>
-                    <Link to={`${location.pathname}?page=${prevPage}`}>
-                        <p>Prev Page</p>
-                    </Link>
-                </li>
+            <StyledNav $variant={variant}>
+                {renderText && (
+                    <li className={`link-item ${isPrevDisabled ? 'disabled' : ''}`}>
+                        <Link to={`${location.pathname}?page=${prevPage}`}>
+                            <p>Prev Page</p>
+                        </Link>
+                    </li>
+                )}
 
-                {/* {paginationNumbers} */}
+                {renderNumbers && paginationNumbers}
 
-                <li className={`link-item ${isNextDisabled ? 'disabled' : ''}`}>
-                    <Link to={`${location.pathname}?page=${nextPage}`}>Next Page</Link>
-                </li>
+                {renderText && (
+                    <li className={`link-item ${isNextDisabled ? 'disabled' : ''}`}>
+                        <Link to={`${location.pathname}?page=${nextPage}`}>Next Page</Link>
+                    </li>
+                )}
             </StyledNav>
         </>
     );
@@ -62,7 +71,7 @@ const StyledNav = styled.nav`
     margin-bottom: var(--margin-bottom-large);
     display: flex;
     gap: 2rem;
-    justify-content: space-between;
+    justify-content: ${({ $variant }) => ($variant === 'text' ? 'space-between' : 'center')};
     align-items: center;
 
     .link-item {
@@ -72,6 +81,8 @@ const StyledNav = styled.nav`
         aspect-ratio: 1;
         display: flex;
         align-items: center;
+        justify-content: center;
+        display: flex;
     }
 
     .link-item.disabled {
