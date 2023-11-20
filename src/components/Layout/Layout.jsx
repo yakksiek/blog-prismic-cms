@@ -17,7 +17,7 @@ Layout.propTypes = {
 };
 
 const StyledWrapper = styled.div`
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 1rem auto;
     padding: 0 2rem;
 `;

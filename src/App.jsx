@@ -1,5 +1,5 @@
 import { useAllPrismicDocumentsByType, useSinglePrismicDocument } from '@prismicio/react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 
 import Home from './views/Home';
 import About from './views/About';
@@ -28,6 +28,7 @@ function App() {
                     <Route path='/blog/:articleUID'>
                         <ArticlePage />
                     </Route>
+                    {/* <Redirect to='/home' /> */}
                 </Switch>
             </Layout>
         </Router>

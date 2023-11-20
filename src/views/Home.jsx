@@ -2,7 +2,8 @@ import { useSinglePrismicDocument, useAllPrismicDocumentsByType } from '@prismic
 import * as prismicH from '@prismicio/helpers';
 
 import Hero from '../components/Hero';
-import Article from '../components/ArticleLead';
+import ArticleLead from '../components/ArticleLead';
+import Pagination from '../components/Pagination';
 // import HeroArticle from '../components/HeroArticle';
 
 function Home() {
@@ -15,15 +16,17 @@ function Home() {
     const categoriesArr = categories.map(item => prismicH.asText(item.data.category_name));
     const blogName = prismicH.asText(hero.data.blog_title);
 
-    const renderPosts = posts => {
-        return posts.map(item => <Article data={item} key={item.id} />);
+    const renderLeads = posts => {
+        return posts.map(item => <ArticleLead data={item} key={item.id} />);
     };
 
     return (
         <>
             <Hero sectionName={blogName} categoriesArr={categoriesArr} variant='dark' />
             <section>
-                <ul>{renderPosts(posts)}</ul>
+                <ul>
+                    <Pagination limit={6}>{renderLeads(posts)}</Pagination>
+                </ul>
             </section>
         </>
     );
