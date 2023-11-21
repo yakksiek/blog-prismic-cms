@@ -14,6 +14,7 @@ const StyledH1 = styled.h1`
     letter-spacing: 5px;
     font-size: clamp(4rem, 17vw, 13rem);
     text-align: center;
+    margin-bottom: 0;
 `;
 
 export default SectionHeading;

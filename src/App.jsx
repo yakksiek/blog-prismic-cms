@@ -1,5 +1,5 @@
-import { useAllPrismicDocumentsByType, useSinglePrismicDocument } from '@prismicio/react';
-import { HashRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
+import { useSinglePrismicDocument } from '@prismicio/react';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './views/Home';
 import About from './views/About';
@@ -9,7 +9,6 @@ import ArticlePage from './views/ArticlePage';
 import Blog from './views/Blog';
 
 function App() {
-    const [document] = useAllPrismicDocumentsByType('post');
     const [navigation] = useSinglePrismicDocument('navigation');
 
     return (
