@@ -6,7 +6,6 @@ import Categories from '../Categories';
 function Hero({ sectionName, categoriesArr, variant = 'light' }) {
     return (
         <div>
-            <hr />
             <SectionHeading>{sectionName.toUpperCase()}</SectionHeading>
             <Categories categories={categoriesArr} variant={variant} />
         </div>

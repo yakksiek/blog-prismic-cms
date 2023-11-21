@@ -1,15 +1,5 @@
 import styled from 'styled-components';
 
-export const StyledNav = styled.nav`
-    display: flex;
-    justify-content: space-between;
-
-    button:hover svg {
-        transform: translateX(-5px);
-        transition: transform 0.3s;
-    }
-`;
-
 export const StyledHeader = styled.div`
     .content {
         display: flex;

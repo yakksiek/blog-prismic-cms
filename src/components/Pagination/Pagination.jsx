@@ -29,14 +29,14 @@ function Pagination({ children, limit, variant = 'both' }) {
                     ...
                 </li>
             );
-        } else {
-            const activeClass = currentPage === number ? 'link-item--active' : '';
-            return (
-                <li key={index} className={`${activeClass} link-item`}>
-                    <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
-                </li>
-            );
         }
+
+        const activeClass = currentPage === number ? 'link-item--active' : '';
+        return (
+            <li key={index} className={`${activeClass} link-item`}>
+                <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
+            </li>
+        );
     });
 
     if (pages === 1) {

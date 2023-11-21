@@ -1,20 +1,19 @@
 import { useAllPrismicDocumentsByType, PrismicRichText } from '@prismicio/react';
-import { useParams, Link, useHistory } from 'react-router-dom';
-import { UilArrowRight, UilArrowLeft } from '@iconscout/react-unicons';
+import { useParams, Link } from 'react-router-dom';
+import { UilArrowRight } from '@iconscout/react-unicons';
 
 import * as h from '../../helpers';
 import useScrollToTop from '../../hooks/useScrollToTop';
 import ArticleMeta from '../../components/ArticleLead/components/ArticleMeta';
 import ArticleLead from '../../components/ArticleLead';
-import Button from '../../components/Button';
+import PageNavigation from '../../components/PageNavigation';
 
-import { StyledNav, StyledHeader, StyledBody, StyledBodyFooter } from './ArticlePage.styled';
+import { StyledHeader, StyledBody, StyledBodyFooter } from './ArticlePage.styled';
 
 function ArticlePage() {
     useScrollToTop();
-    const history = useHistory();
-    const [posts] = useAllPrismicDocumentsByType('post');
 
+    const [posts] = useAllPrismicDocumentsByType('post');
     const { articleUID } = useParams();
 
     if (!posts) return;
@@ -23,20 +22,9 @@ function ArticlePage() {
 
     const { leadText, postTitle, imgSrc, articleContent, imgAltText, metaData } = h.getArticleData(article);
 
-    const handleGoBack = () => {
-        history.goBack();
-    };
-
     return (
         <section>
-            <StyledNav className='margin-bottom-large'>
-                <Button type='button' clickHandler={handleGoBack}>
-                    <UilArrowLeft /> GO BACK
-                </Button>
-                <Link to='/blog'>
-                    <h4>BLOG</h4>
-                </Link>
-            </StyledNav>
+            <PageNavigation pageName='blog' />
             <StyledHeader>
                 <div className='header__content content'>
                     <h1 className='content__title'>{postTitle}</h1>

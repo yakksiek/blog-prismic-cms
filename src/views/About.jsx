@@ -1,7 +1,11 @@
-import React from 'react';
+import PageNavigation from '../components/PageNavigation';
 
 function About() {
-    return <h1>About</h1>;
+    return (
+        <>
+            <PageNavigation pageName='about' />
+        </>
+    );
 }
 
 export default About;

@@ -19,7 +19,7 @@ function Header({ menuDoc }) {
         <>
             <StyledHeader>
                 <NavLink to='/'>
-                    <h4>{blog_name[0].text}</h4>
+                    <h4 className='header__title'>{blog_name[0].text}</h4>
                 </NavLink>
                 <StyledNav>
                     <ul>
@@ -29,16 +29,20 @@ function Header({ menuDoc }) {
                     </ul>
                 </StyledNav>
             </StyledHeader>
+            <hr />
         </>
     );
 }
 
 const StyledHeader = styled.header`
-    padding: 0.5rem 0;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .header__title {
+        margin-bottom: 0;
+    }
 `;
 const StyledNav = styled.nav`
     ul {

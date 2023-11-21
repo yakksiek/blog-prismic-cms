@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
-function Button({ children, type, clickHandler }) {
+function Button({ children, type, clickHandler, classes }) {
     return (
-        <StyledButton onClick={clickHandler} type={type}>
+        <StyledButton className={classes} onClick={clickHandler} type={type}>
             {children}
         </StyledButton>
     );
@@ -11,12 +11,14 @@ function Button({ children, type, clickHandler }) {
 
 Button.defaultProps = {
     type: 'button',
+    classes: '',
 };
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
     type: PropTypes.string,
     clickHandler: PropTypes.func.isRequired,
+    classes: PropTypes.string,
 };
 
 const StyledButton = styled.button`
