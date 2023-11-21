@@ -29,7 +29,7 @@ PageNavigation.propTypes = {
 const StyledNav = styled.nav`
     display: flex;
     justify-content: space-between;
-    margin-top: var(--margin-bottom-small);
+    margin-top: var(--margin-small);
 
     .nav__title {
         margin-bottom: 0;

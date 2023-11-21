@@ -3,12 +3,13 @@ import { createGlobalStyle } from 'styled-components';
 const GlobalStyles = createGlobalStyle`
   :root{
     --font-ultra-light: 'GeneralSansExtraLight', sans-serif;
-    --font-light: 'GeneralSansMedium', sans-serif;
     --font-regular: 'GeneralSansRegular', sans-serif;
+    --font-medium: 'GeneralSansMedium', sans-serif;
     --font-extra-bold: 'GeneralSansSemiBold', sans-serif;
-    --margin-bottom-large: 4rem;
-    --margin-bottom: 2rem;
-    --margin-bottom-small: 1rem;
+    --margin-large: 4rem;
+    --margin-regular: 2rem;
+    --margin-small: 1rem;
+    --max-width-container-medium: 54rem;
     --font-size-button: 1.25rem;
   }
 
@@ -30,7 +31,7 @@ const GlobalStyles = createGlobalStyle`
   }
 
   h2 {
-    font-size: 3rem;
+    font-size: 5rem;
   }
 
   h4 {
@@ -43,6 +44,11 @@ const GlobalStyles = createGlobalStyle`
 
   h6 {
     font-size: 1.2rem;
+    line-height: 1.8rem;
+  }
+
+  p {
+    line-height: 1.7rem;
   }
 
   a {

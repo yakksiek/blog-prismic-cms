@@ -1,4 +1,5 @@
 import * as prismicH from '@prismicio/helpers';
+import { PrismicRichText } from '@prismicio/react';
 
 export function convertDateFormat(dateStr) {
     const months = [
@@ -61,6 +62,47 @@ export function getArticleData(data) {
         articleContent: article_content,
         imgAltText,
         metaData,
+    };
+}
+
+export function getAboutPageData(data, icons) {
+    const { data: aboutPageData } = data;
+    console.log(aboutPageData);
+    const { bio_image, full_name, main_content, lead, meta, socials } = aboutPageData;
+
+    const imgSrc = prismicH.asImageSrc(bio_image);
+    const name = prismicH.asText(full_name);
+    const leadParagraph = prismicH.asText(lead);
+    const metaData = meta.map(({ meta_item }) => {
+        const [key, value] = meta_item.split(':');
+        return (
+            <li className='meta__item' key={key}>
+                <span className='meta__title'>{key}</span>
+                {value}
+            </li>
+        );
+    });
+    const socialsDataJSX = socials.map(({ socials_item }) => {
+        const { url } = socials_item;
+        const iconName = Object.keys(icons).find(domain => url.includes(domain));
+        const icon = icons[iconName];
+
+        return (
+            <li key={url}>
+                <a href={url} target='_blank' rel='noreferrer'>
+                    {icon}
+                </a>
+            </li>
+        );
+    });
+
+    return {
+        imgSrc,
+        name,
+        content: <PrismicRichText field={main_content} />,
+        leadParagraph,
+        socials: socialsDataJSX,
+        meta: metaData,
     };
 }
 

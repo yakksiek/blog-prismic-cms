@@ -4,7 +4,7 @@ export const StyledHeader = styled.div`
     .content {
         display: flex;
         gap: 2rem;
-        margin-bottom: var(--margin-bottom-large);
+        margin-bottom: var(--margin-large);
 
         &__title {
             font-size: 3.5rem;
@@ -20,27 +20,27 @@ export const StyledHeader = styled.div`
         }
 
         &__meta {
-            margin-bottom: var(--margin-bottom);
+            margin-bottom: var(--margin-regular);
         }
     }
 
     .header__img {
         width: 100%;
         object-fit: cover;
-        margin-bottom: var(--margin-bottom-large);
+        margin-bottom: var(--margin-large);
     }
 
     @media ${({ theme }) => theme.media.tablet} {
         .content {
             display: block;
-            margin-bottom: var(--margin-bottom);
+            margin-bottom: var(--margin-regular);
         }
     }
 
     @media ${({ theme }) => theme.media.mobile} {
         .content {
             display: block;
-            margin-bottom: var(--margin-bottom-small);
+            margin-bottom: var(--margin-regular-small);
             align-items: start;
 
             &__title {
@@ -52,7 +52,7 @@ export const StyledHeader = styled.div`
             }
 
             &__meta {
-                margin-bottom: var(--margin-bottom);
+                margin-bottom: var(--margin-regular);
             }
         }
     }
@@ -62,9 +62,9 @@ export const StyledBody = styled.div`
     display: flex;
     align-items: start;
     gap: 3rem;
-    max-width: 55rem;
+    max-width: var(--max-width-container-medium);
     margin: 0 auto;
-    margin-bottom: var(--margin-bottom-large);
+    margin-bottom: var(--margin-large);
 
     .body__meta {
         flex: 1 0 auto;
@@ -83,7 +83,6 @@ export const StyledBody = styled.div`
         p {
             line-height: 1.6rem;
             margin-bottom: 1rem;
-            font-size: 1.1rem;
         }
     }
 

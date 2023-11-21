@@ -20,12 +20,12 @@ export const StyledHeaderArticle = styled.header`
     justify-content: space-between;
 
     .header__title {
-        margin-bottom: var(--margin-bottom);
+        margin-bottom: var(--margin-regular);
     }
 
     .article__lead {
         line-height: 1.5rem;
-        margin-bottom: var(--margin-bottom);
+        margin-bottom: var(--margin-regular);
     }
 `;
 
@@ -45,7 +45,7 @@ export const StyledImageWrapper = styled.div`
 
         @media screen and (max-width: 600px) {
             max-width: 100%;
-            margin-bottom: var(--margin-bottom-small);
+            margin-bottom: var(--margin-regular-small);
         }
     }
 `;

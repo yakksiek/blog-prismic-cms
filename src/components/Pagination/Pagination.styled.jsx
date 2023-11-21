@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledNav = styled.nav`
-    margin-top: var(--margin-bottom-small);
-    margin-bottom: var(--margin-bottom-large);
+    margin-top: var(--margin-regular-small);
+    margin-bottom: var(--margin-large);
     display: flex;
     gap: 2rem;
     justify-content: ${({ $variant }) => ($variant === 'text' ? 'space-between' : 'center')};
