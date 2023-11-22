@@ -23,7 +23,7 @@ const GlobalStyles = createGlobalStyle`
 
   body {
     background-color: #fff;
-    font-family: var(--font-ultra-light);
+    font-family: var(--font-regular);
   }
 
   h1, h2, h4, h5, h6 {
