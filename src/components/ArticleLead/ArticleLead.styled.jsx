@@ -1,38 +1,72 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledArticleItem = styled.li`
     border-bottom: 0.5px solid black;
     min-height: 300px;
     padding: 2.5rem 0;
-    display: flex;
-    flex-direction: row;
-    gap: 2rem;
+    display: grid;
+    grid-column-gap: 2rem;
+    grid-template-columns: 1fr 4fr;
+    grid-template-areas:
+        'picture body'
+        'picture footer';
 
     @media screen and (max-width: 600px) {
         display: block;
     }
+
+    ${({ $variant }) =>
+        $variant === 'block' &&
+        css`
+            max-width: 400px;
+            border-bottom: none;
+            border: 1px solid black;
+            margin-top: -1px;
+            margin-left: -1px;
+            padding: 2.5rem;
+            grid-template-columns: 1fr;
+            grid-template-rows: 2rem min-content min-content;
+            grid-row-gap: 1rem;
+
+            grid-template-areas:
+                'footer'
+                'picture'
+                'body';
+        `}
 `;
 
 export const StyledHeaderArticle = styled.header`
-    flex: 4;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    grid-area: body;
 
-    .header__title {
-        margin-bottom: var(--margin-regular);
-    }
-
-    .article__lead {
+    p {
         line-height: 1.5rem;
         margin-bottom: var(--margin-regular);
     }
+
+    ${({ $variant }) =>
+        $variant === 'block' &&
+        css`
+            justify-content: flex-start;
+
+            h4 {
+                font-size: 1.5rem;
+            }
+
+            p {
+                margin-bottom: 0;
+            }
+        `}
 `;
 
 export const StyledImageWrapper = styled.div`
-    flex: 1;
+    grid-area: picture;
+    width: 100%;
+    height: 100%;
 
-    .article__img {
+    img {
         max-width: 220px;
         object-fit: cover;
         aspect-ratio: 1;
@@ -42,4 +76,18 @@ export const StyledImageWrapper = styled.div`
             margin-bottom: var(--margin-regular-small);
         }
     }
+
+    ${({ $variant }) =>
+        $variant === 'block' &&
+        css`
+            img {
+                max-width: 100%;
+                object-fit: cover;
+            }
+        `}
+`;
+
+export const StyledFooter = styled.div`
+    grid-area: footer;
+    margin-top: auto;
 `;

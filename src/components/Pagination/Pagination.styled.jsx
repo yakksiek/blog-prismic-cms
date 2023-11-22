@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledNav = styled.nav`
-    margin-top: var(--margin-regular-small);
+    margin-top: var(--margin-regular);
     margin-bottom: var(--margin-large);
     display: flex;
     gap: 2rem;

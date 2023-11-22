@@ -10,15 +10,13 @@ function SortedArticles({ articles, query }) {
     const filteredArticles = h.filterByCategoryUid(articles, queryString);
 
     const renderLeads = posts => {
-        return posts.map(item => <ArticleLead data={item} key={item.id} />);
+        return posts.map(item => <ArticleLead data={item} key={item.id} variant='block' showMetaLabels={false} />);
     };
 
     return (
-        <ul>
-            <Pagination limit={4} variant='numbers'>
-                {renderLeads(filteredArticles)}
-            </Pagination>
-        </ul>
+        <Pagination limit={6} variant='numbers' listVariant='column'>
+            {renderLeads(filteredArticles)}
+        </Pagination>
     );
 }
 

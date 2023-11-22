@@ -17,18 +17,16 @@ function Home() {
     const blogName = prismicH.asText(hero.data.blog_title);
 
     const renderLeads = posts => {
-        return posts.map(item => <ArticleLead data={item} key={item.id} />);
+        return posts.map(item => <ArticleLead data={item} key={item.id} showMetaLabels={true} />);
     };
 
     return (
         <>
             <Hero sectionName={blogName} categoriesArr={categoriesArr} variant='dark' />
             <section>
-                <ul>
-                    <Pagination limit={6} variant='text'>
-                        {renderLeads(posts)}
-                    </Pagination>
-                </ul>
+                <Pagination limit={6} variant='text'>
+                    {renderLeads(posts)}
+                </Pagination>
             </section>
         </>
     );

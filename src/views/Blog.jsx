@@ -11,10 +11,9 @@ function Blog() {
     const [posts] = useAllPrismicDocumentsByType('post');
     const location = useLocation();
 
-    if (!categories) return;
+    if (!categories || !posts) return;
 
     const categoryParam = h.getSearchParam('category', location.search);
-    
     const categoriesArr = categories.map(item => prismicH.asText(item.data.category_name));
 
     return (

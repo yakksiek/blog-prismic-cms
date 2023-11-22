@@ -1,10 +1,11 @@
 import { Link, useLocation } from 'react-router-dom';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 
 import * as h from '../../helpers';
 import { StyledNav } from './Pagination.styled';
 
-function Pagination({ children, limit, variant = 'both' }) {
+function Pagination({ children, limit, variant = 'both', listVariant }) {
     const location = useLocation();
     const length = children.length;
     const renderNumbers = variant === 'both' || variant === 'numbers';
@@ -40,12 +41,12 @@ function Pagination({ children, limit, variant = 'both' }) {
     });
 
     if (pages === 1) {
-        return <ul>{children.slice(begin, end)}</ul>;
+        return <StyledList $variant={listVariant}>{children.slice(begin, end)}</StyledList>;
     }
 
     return (
         <>
-            <ul>{children.slice(begin, end)}</ul>
+            <StyledList $variant={listVariant}>{children.slice(begin, end)}</StyledList>
             <StyledNav $variant={variant}>
                 {renderText && (
                     <li className={`link-item ${isPrevDisabled ? 'disabled' : ''}`}>
@@ -67,14 +68,33 @@ function Pagination({ children, limit, variant = 'both' }) {
     );
 }
 
+const StyledList = styled.ul`
+    ${({ $variant }) =>
+        $variant === 'column' &&
+        css`
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            @media ${({ theme }) => theme.media.tablet} {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media ${({ theme }) => theme.media.mobile} {
+                grid-template-columns: 1fr;
+            }
+        `}
+`;
+
 Pagination.defaultPropTypes = {
     variant: 'both',
+    listVariant: '',
 };
 
 Pagination.propTypes = {
     children: PropTypes.node.isRequired,
     limit: PropTypes.number.isRequired,
     variant: PropTypes.string,
+    listVariant: PropTypes.string,
 };
 
 export default Pagination;

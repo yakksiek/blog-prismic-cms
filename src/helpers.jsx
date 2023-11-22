@@ -1,20 +1,7 @@
 import * as prismicH from '@prismicio/helpers';
 
 export function convertDateFormat(dateStr) {
-    const months = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-        'July',
-        'August',
-        'September',
-        'October',
-        'November',
-        'December',
-    ];
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
     const dateObj = new Date(dateStr);
 
@@ -200,7 +187,7 @@ export function filterByCategoryUid(objects, uid) {
     if (uid === '') return objects;
 
     return objects.filter(obj => {
-        if (!obj.data.category || !obj.data.category.uid) return;
+        if (!obj.data || !obj.data.category.uid) return;
 
         const categoryName = obj.data.category.uid.split('-')[1];
 
