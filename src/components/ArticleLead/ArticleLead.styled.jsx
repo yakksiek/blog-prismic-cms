@@ -29,12 +29,6 @@ export const StyledHeaderArticle = styled.header`
     }
 `;
 
-export const StyledHeaderBottom = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;
-
 export const StyledImageWrapper = styled.div`
     flex: 1;
 

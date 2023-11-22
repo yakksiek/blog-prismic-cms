@@ -60,13 +60,17 @@ const GlobalStyles = createGlobalStyle`
     list-style: none;
   }
 
-  .margin-bottom {
+  button {
+    cursor: pointer
+  }
+
+  /* .margin-bottom {
     margin-bottom: 2rem;
   }
 
   .margin-bottom-large {
     margin-bottom: 4rem;
-  }
+  } */
 
 `;
 
