@@ -14,8 +14,8 @@ function Categories({ categories, variant }) {
 
     return (
         <StyledSection $variant={variant}>
-            <h5 className='categories__label'>Categories</h5>
-            <ul className='categories__list list'>{renderCategories(categories)}</ul>
+            <h6>CATEGORIES</h6>
+            <ul className='list'>{renderCategories(categories)}</ul>
         </StyledSection>
     );
 }

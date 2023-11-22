@@ -2,14 +2,14 @@ import styled, { css } from 'styled-components';
 
 export const StyledSection = styled.div`
     background-color: #000;
-    min-height: 50px;
+    min-height: 60px;
     color: #fff;
     padding: 1rem 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .categories__label {
+    h6 {
         margin-bottom: 0;
     }
 
@@ -19,9 +19,15 @@ export const StyledSection = styled.div`
 
         &__item {
             color: inherit;
+            font-size: 0.75rem;
             border: 1px solid #fff;
-            padding: 0.5rem 1rem;
+            padding: 0.4rem 1rem;
             border-radius: 100vh;
+
+            &:hover {
+                transform: scale(1.1);
+                transition: transform 0.3s;
+            }
         }
     }
 
@@ -36,4 +42,11 @@ export const StyledSection = styled.div`
                 color: inherit;
             }
         `}
+
+    @media ${({ theme }) => theme.media.mobile} {
+        display: block;
+        h6 {
+            margin-bottom: var(--margin-small);
+        }
+    }
 `;
