@@ -70,11 +70,12 @@ export const StyledBody = styled.div`
         flex: 1 0 auto;
 
         flex-direction: column;
-        justify-content: start;
+        justify-content: flex-start;
+        align-items: end;
 
-        .meta__item--category {
+        /* .meta__item--category {
             margin: 0;
-        }
+        } */
     }
 
     .body__text-container {
@@ -133,7 +134,7 @@ export const StyledBodyFooter = styled.div`
         }
     }
 
-    .newest-list li:last-child {
+    .footer__list > li:last-child {
         border-bottom: none;
     }
 `;

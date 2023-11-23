@@ -18,9 +18,9 @@ function ArticleMeta({ metaData, classes, labels }) {
                 {duration} Min
             </li>
             {category !== '' && (
-                <Link to={`/blog?category=${categoryName}`} className='meta-item meta-category'>
-                    {categoryName.toUpperCase()}
-                </Link>
+                <li className='meta-item meta-category'>
+                    <Link to={`/blog?category=${categoryName}`}>{categoryName.toUpperCase()}</Link>
+                </li>
             )}
         </StyledMetaList>
     );

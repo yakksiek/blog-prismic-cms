@@ -26,15 +26,15 @@ function ArticlePage() {
         <section>
             <PageNavigation pageName='blog' />
             <StyledHeader>
-                <div className='header__content content'>
+                <div className=' content'>
                     <h1 className='content__title'>{postTitle}</h1>
                     <p className='content__lead'>{leadText}</p>
                 </div>
-                <ArticleMeta metaData={metaData} classes='content__meta' />
+                <ArticleMeta metaData={metaData} classes='content__meta' labels={true} />
                 <img className='header__img' src={imgSrc} alt={imgAltText} />
             </StyledHeader>
             <StyledBody>
-                <ArticleMeta metaData={metaData} classes='body__meta' />
+                <ArticleMeta metaData={metaData} classes='body__meta' labels={true} />
                 <div className='body__text-container'>
                     <PrismicRichText field={articleContent} />
                 </div>
@@ -47,9 +47,9 @@ function ArticlePage() {
                         SEE ALL <UilArrowRight />
                     </Link>
                 </div>
-                <ul className='newest-list'>
+                <ul className='footer__list'>
                     {sortedPosts.map(item => (
-                        <ArticleLead key={item.id} data={item} />
+                        <ArticleLead key={item.id} data={item} showMetaLabels={true} />
                     ))}
                 </ul>
             </StyledBodyFooter>
