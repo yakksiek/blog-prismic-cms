@@ -57,8 +57,18 @@ const StyledMetaList = styled.ul`
         border: 1px solid black;
         border-radius: 100vh;
         padding: 0.25rem 0.5rem;
-        font-size: 0.75rem;
+        font-size: 0.7rem;
         margin-left: auto;
+    }
+
+    @media ${({ theme }) => theme.media.tablet} {
+        gap: 0.5rem;
+
+        .meta-item {
+            display: flex;
+            flex-direction: column;
+
+        }
     }
 
     @media ${({ theme }) => theme.media.mobile} {

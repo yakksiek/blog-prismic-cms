@@ -11,21 +11,16 @@ export const StyledArticleItem = styled.li`
         'picture body'
         'picture footer';
 
-    @media screen and (max-width: 600px) {
-        display: block;
-    }
-
     ${({ $variant }) =>
         $variant === 'block' &&
         css`
-            max-width: 400px;
             border-bottom: none;
             border: 1px solid black;
             margin-top: -1px;
             margin-left: -1px;
             padding: 2.5rem;
             grid-template-columns: 1fr;
-            grid-template-rows: 2rem min-content min-content;
+            grid-template-rows: minmax(2rem, 3rem) min-content min-content;
             grid-row-gap: 1rem;
 
             grid-template-areas:
@@ -33,6 +28,17 @@ export const StyledArticleItem = styled.li`
                 'picture'
                 'body';
         `}
+
+    @media ${({ theme }) => theme.media.mobile} {
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 2rem;
+        grid-row-gap: 1rem;
+
+        grid-template-areas:
+            'picture'
+            'body'
+            'footer';
+    }
 `;
 
 export const StyledHeaderArticle = styled.header`
