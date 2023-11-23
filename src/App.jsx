@@ -1,5 +1,5 @@
 import { useSinglePrismicDocument } from '@prismicio/react';
-import { HashRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Redirect, Route, Switch } from 'react-router-dom';
 import { Helmet, HelmetData } from 'react-helmet-async';
 import * as prismicH from '@prismicio/helpers';
 
@@ -9,6 +9,7 @@ import Layout from './components/Layout';
 import Header from './components/Header';
 import ArticlePage from './views/ArticlePage';
 import Blog from './views/Blog';
+import NotFound from './views/NotFound';
 
 const helmetData = new HelmetData({});
 
@@ -39,7 +40,12 @@ function App() {
                     <Route path='/blog/:articleUID'>
                         <ArticlePage />
                     </Route>
-                    {/* <Redirect to='/home' /> */}
+                    <Route path='/404.html'>
+                        <NotFound />
+                    </Route>
+                    <Route>
+                        <Redirect to='/404.html' />
+                    </Route>
                 </Switch>
             </Layout>
         </Router>

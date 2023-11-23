@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 
-import Footer from '../Footer';
+// import Footer from '../Footer';
 
 function Layout({ children }) {
     return (
         <StyledWrapper>
             {children}
-            <Footer />
+            {/* <Footer /> */}
         </StyledWrapper>
     );
 }
