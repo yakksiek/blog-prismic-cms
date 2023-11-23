@@ -29,7 +29,16 @@ export const StyledArticleItem = styled.li`
                 'body';
         `}
 
+    ${({ $variant }) =>
+        $variant !== 'block' &&
+        css`
+            @media ${({ theme }) => theme.media.tablet} {
+                grid-template-columns: 1fr 2fr;
+            }
+        `}
+
     @media ${({ theme }) => theme.media.mobile} {
+        padding: 1.5rem 0;
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content 2rem;
         grid-row-gap: 1rem;
@@ -77,8 +86,9 @@ export const StyledImageWrapper = styled.div`
         object-fit: cover;
         aspect-ratio: 1;
 
-        @media screen and (max-width: 600px) {
+        @media ${({ theme }) => theme.media.tablet}, ${({ theme }) => theme.media.mobile} {
             max-width: 100%;
+            height: 100%;
             margin-bottom: var(--margin-regular-small);
         }
     }

@@ -4,7 +4,7 @@ export const StyledSection = styled.div`
     background-color: #000;
     min-height: 60px;
     color: #fff;
-    padding: 1rem 1rem;
+    padding: 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

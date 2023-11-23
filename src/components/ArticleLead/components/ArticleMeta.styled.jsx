@@ -22,15 +22,6 @@ export const StyledMetaList = styled.ul`
         margin-left: auto;
     }
 
-    @media ${({ theme }) => theme.media.tablet} {
-        gap: 0.5rem;
-
-        .meta-item {
-            display: flex;
-            flex-direction: column;
-        }
-    }
-
     @media ${({ theme }) => theme.media.mobile} {
         gap: 1rem;
 
