@@ -1,9 +1,8 @@
-import { Link, useLocation } from 'react-router-dom';
-import styled, { css } from 'styled-components';
+import { Link, useLocation, Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 import * as h from '../../helpers';
-import { StyledNav } from './Pagination.styled';
+import { StyledNav, StyledList } from './Pagination.styled';
 
 function Pagination({ children, limit, variant = 'both', listVariant }) {
     const location = useLocation();
@@ -14,14 +13,15 @@ function Pagination({ children, limit, variant = 'both', listVariant }) {
     const pageParam = h.getSearchParam('page', location.search);
     const currentPage = Number(pageParam) || 1;
 
-    const begin = limit * (currentPage - 1);
-    const end = currentPage * limit;
+    const { prevPage, nextPage, pageNumbers, isPrevDisabled, isNextDisabled, pages, begin, end } =
+        h.generatePaginationData(currentPage, limit, length);
 
-    const { prevPage, nextPage, pageNumbers, isPrevDisabled, isNextDisabled, pages } = h.generatePaginationData(
-        currentPage,
-        limit,
-        length,
-    );
+    const isCurrPageOutOfRange = currentPage > pages;
+    if (isCurrPageOutOfRange) {
+        const { pathname } = location;
+
+        return <Redirect to={pathname + '?page=1'} />;
+    }
 
     const paginationNumbers = pageNumbers.map((number, index) => {
         if (number === '...') {
@@ -67,23 +67,6 @@ function Pagination({ children, limit, variant = 'both', listVariant }) {
         </>
     );
 }
-
-const StyledList = styled.ul`
-    ${({ $variant }) =>
-        $variant === 'column' &&
-        css`
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr;
-
-            @media ${({ theme }) => theme.media.tablet} {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            @media ${({ theme }) => theme.media.mobile} {
-                grid-template-columns: 1fr;
-            }
-        `}
-`;
 
 Pagination.defaultPropTypes = {
     variant: 'both',

@@ -14,7 +14,7 @@ function SortedArticles({ articles, query }) {
     };
 
     return (
-        <Pagination limit={6} variant='numbers' listVariant='column'>
+        <Pagination limit={1} variant='numbers' listVariant='column'>
             {renderLeads(filteredArticles)}
         </Pagination>
     );

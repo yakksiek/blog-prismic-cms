@@ -1,4 +1,21 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
+
+export const StyledList = styled.ul`
+    ${({ $variant }) =>
+        $variant === 'column' &&
+        css`
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+
+            @media ${({ theme }) => theme.media.tablet} {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            @media ${({ theme }) => theme.media.mobile} {
+                grid-template-columns: 1fr;
+            }
+        `}
+`;
 
 export const StyledNav = styled.nav`
     margin-top: var(--margin-regular);
