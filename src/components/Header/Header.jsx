@@ -1,8 +1,7 @@
 /* eslint-disable react/prop-types */
-import styled from 'styled-components';
-// import { UilTwitter, UilInstagram, UilRss } from '@iconscout/react-unicons';
-// import { PrismicText, PrismicLink } from '@prismicio/react';
 import { NavLink } from 'react-router-dom';
+
+import { StyledHeader, StyledNav } from './Header.styled';
 
 function Header({ menuDoc }) {
     if (!menuDoc) return null;
@@ -33,22 +32,5 @@ function Header({ menuDoc }) {
         </>
     );
 }
-
-const StyledHeader = styled.header`
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    .header__title {
-        margin-bottom: 0;
-    }
-`;
-const StyledNav = styled.nav`
-    ul {
-        display: flex;
-        gap: 2rem;
-    }
-`;
 
 export default Header;
