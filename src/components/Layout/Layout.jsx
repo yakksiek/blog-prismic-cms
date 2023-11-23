@@ -18,8 +18,12 @@ Layout.propTypes = {
 
 const StyledWrapper = styled.div`
     max-width: 1500px;
-    margin: 1rem auto;
-    padding: 0 2rem;
+    margin: 0 auto;
+    padding: 2rem;
+
+    @media ${({ theme }) => theme.media.mobile} {
+        padding: 1.5rem;
+    }
 `;
 
 export default Layout;
