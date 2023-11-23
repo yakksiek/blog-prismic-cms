@@ -1,5 +1,5 @@
 import { useAllPrismicDocumentsByType, PrismicRichText } from '@prismicio/react';
-import { useParams, Link } from 'react-router-dom';
+import { useParams, Link, Redirect } from 'react-router-dom';
 import { UilArrowRight } from '@iconscout/react-unicons';
 
 import * as h from '../../helpers';
@@ -15,10 +15,14 @@ function ArticlePage() {
 
     const [posts] = useAllPrismicDocumentsByType('post');
     const { articleUID } = useParams();
-
     if (!posts) return;
-    const sortedPosts = h.sortPostsByDate(posts).slice(0, 3);
+
     const article = posts.find(item => item.uid === articleUID);
+    if (!article) {
+        return <Redirect to='/404.html' />;
+    }
+
+    const sortedPosts = h.sortPostsByDate(posts).slice(0, 3);
 
     const { leadText, postTitle, imgSrc, articleContent, imgAltText, metaData } = h.getArticleData(article);
 
