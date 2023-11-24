@@ -19,7 +19,7 @@ function ArticleMeta({ metaData, classes, labels }) {
             </li>
             {category !== '' && (
                 <li className='meta-item meta-category'>
-                    <Link to={`/blog?category=${categoryName}`}>{categoryName.toUpperCase()}</Link>
+                    <Link to={`/blog/category/${categoryName}`}>{categoryName.toUpperCase()}</Link>
                 </li>
             )}
         </StyledMetaList>
