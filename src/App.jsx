@@ -7,7 +7,6 @@ import Home from './views/Home';
 import About from './views/About';
 import Layout from './components/Layout';
 import Header from './components/Header';
-import ArticlePage from './views/ArticlePage';
 import Blog from './views/Blog';
 import NotFound from './views/NotFound';
 
@@ -34,11 +33,8 @@ function App() {
                     <Route path='/about'>
                         <About />
                     </Route>
-                    <Route exact path='/blog'>
+                    <Route path='/blog'>
                         <Blog />
-                    </Route>
-                    <Route path='/blog/:articleUID'>
-                        <ArticlePage />
                     </Route>
                     <Route path='/404.html'>
                         <NotFound />

@@ -15,7 +15,7 @@ function ArticleLead({ data, variant, showMetaLabels }) {
             </StyledImageWrapper>
 
             <StyledHeaderArticle $variant={variant}>
-                <Link to={`/blog/${uid}`}>
+                <Link to={`/blog/article/${uid}`}>
                     <h4>{postTitle}</h4>
                 </Link>
                 <p>{leadText}</p>

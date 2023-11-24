@@ -38,7 +38,7 @@ export const StyledArticleItem = styled.li`
         `}
 
     @media ${({ theme }) => theme.media.mobile} {
-        padding: 1.5rem 0;
+        padding: 1.5rem;
         grid-template-columns: 1fr;
         grid-template-rows: min-content min-content 2rem;
         grid-row-gap: 1rem;

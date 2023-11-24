@@ -7,6 +7,7 @@ import { StyledNav, StyledList } from './Pagination.styled';
 function Pagination({ children, limit, variant = 'both', listVariant }) {
     const location = useLocation();
     const length = children.length;
+    const { pathname } = location;
     const renderNumbers = variant === 'both' || variant === 'numbers';
     const renderText = variant === 'both' || variant === 'text';
 
@@ -18,8 +19,6 @@ function Pagination({ children, limit, variant = 'both', listVariant }) {
 
     const isCurrPageOutOfRange = currentPage > pages;
     if (isCurrPageOutOfRange) {
-        const { pathname } = location;
-
         return <Redirect to={pathname + '?page=1'} />;
     }
 
@@ -35,7 +34,7 @@ function Pagination({ children, limit, variant = 'both', listVariant }) {
         const activeClass = currentPage === number ? 'link-item--active' : '';
         return (
             <li key={index} className={`${activeClass} link-item`}>
-                <Link to={`${location.pathname}?page=${number}`}>{number}</Link>
+                <Link to={`${pathname}?page=${number}`}>{number}</Link>
             </li>
         );
     });
@@ -50,7 +49,7 @@ function Pagination({ children, limit, variant = 'both', listVariant }) {
             <StyledNav $variant={variant}>
                 {renderText && (
                     <li className={`link-item ${isPrevDisabled ? 'disabled' : ''}`}>
-                        <Link to={`${location.pathname}?page=${prevPage}`}>
+                        <Link to={`${pathname}?page=${prevPage}`}>
                             <p>Prev Page</p>
                         </Link>
                     </li>

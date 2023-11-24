@@ -6,7 +6,7 @@ import { StyledSection } from './Categories.styled';
 function Categories({ categories, variant }) {
     const renderCategories = categories => {
         return categories.map((item, index) => (
-            <Link className='list__item' to={`/blog?category=${item.toLowerCase()}`} key={index}>
+            <Link className='list__item' to={`/blog/category/${item.toLowerCase()}`} key={index}>
                 {item}
             </Link>
         ));
