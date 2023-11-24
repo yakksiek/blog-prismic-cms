@@ -1,92 +1,34 @@
-import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
-import mainArticleImg from '../../images/mainarticle-min.png';
+import * as h from '../../helpers';
+import heroArticlePropTypes from '../../propTypes/articleDataPropTypes';
+import ArticleMeta from '../ArticleLead/components/ArticleMeta';
 
-function HeroArticle() {
+import { StyledHeroArticle, StyledImageWrapper, StyledHeaderArticle, StyledArticleContent } from './HeroArticle.styled';
+
+function HeroArticle({ articleData }) {
+    const { uid, leadText, postTitle, imgAltText, imgSrc, metaData } = h.getArticleData(articleData);
+
     return (
         <StyledHeroArticle>
             <StyledImageWrapper>
-                <img src={mainArticleImg} alt='main article img - eyes' />
+                <img src={imgSrc} alt={imgAltText} />
             </StyledImageWrapper>
             <StyledHeaderArticle>
-                <h2>DON&apos;T CLOSE YOUR EYES</h2>
+                <Link to={`/blog/article/${uid}`}>
+                    <h2>{postTitle}</h2>
+                </Link>
                 <StyledArticleContent>
-                    <p>
-                        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Architecto qui atque placeat nam ex
-                        officia blanditiis modi voluptas culpa quae doloribus, illum odit quibusdam accusantium quas
-                        reprehenderit necessitatibus sunt perspiciatis.
-                    </p>
-                    <StyledArticleInfo>
-                        <ul className='info'>
-                            <li>
-                                <span className='info-item'>Date:</span>16, March 2022
-                            </li>
-                            <li>
-                                <span className='info-item'>Duration:</span>5 Min
-                            </li>
-                        </ul>
-                        <ul className='category'>
-                            <li className='category-item'>lifestyle</li>
-                        </ul>
-                    </StyledArticleInfo>
+                    <h6>{leadText}</h6>
+                    <ArticleMeta metaData={metaData} labels={true} />
                 </StyledArticleContent>
             </StyledHeaderArticle>
         </StyledHeroArticle>
     );
 }
 
-const StyledHeroArticle = styled.section`
-    display: flex;
-    flex-direction: column-reverse;
-    margin: 4rem 0;
-`;
-
-const StyledHeaderArticle = styled.header`
-    display: flex;
-    padding: 1rem 0;
-    & > * {
-        flex: 1;
-    }
-
-    h2 {
-        font-size: 4rem;
-    }
-`;
-
-const StyledArticleContent = styled.div`
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-`;
-
-const StyledArticleInfo = styled.div`
-    display: flex;
-    justify-content: space-between;
-
-    .category,
-    .info {
-        display: flex;
-        gap: 1rem;
-    }
-
-    .info-item {
-        font-family: var(--font-extra-bold);
-        margin-right: 0.25rem;
-    }
-
-    .category-item {
-        border: 1px solid black;
-        border-radius: 100vh;
-        padding: 0.25rem 0.5rem;
-    }
-`;
-
-const StyledImageWrapper = styled.div`
-    img {
-        width: 100%;
-        /* height: 400px; */
-        object-fit: cover;
-    }
-`;
+HeroArticle.propTypes = {
+    articleData: heroArticlePropTypes,
+};
 
 export default HeroArticle;
