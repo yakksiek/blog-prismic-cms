@@ -4,8 +4,10 @@ import { useParams } from 'react-router-dom';
 import * as h from '../../helpers';
 import ArticleLead from '../ArticleLead';
 import Pagination from '../Pagination';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 function SortedArticles({ articles }) {
+    useScrollToTop();
     const { category } = useParams();
     const queryString = category || '';
 
@@ -16,7 +18,7 @@ function SortedArticles({ articles }) {
     };
 
     return (
-        <Pagination limit={6} variant='numbers' listVariant='column'>
+        <Pagination limit={1} variant='numbers' listVariant='column'>
             {renderLeads(filteredArticles)}
         </Pagination>
     );

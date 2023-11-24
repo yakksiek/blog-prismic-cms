@@ -1,4 +1,4 @@
-import styled, {css} from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const StyledList = styled.ul`
     ${({ $variant }) =>
@@ -27,9 +27,7 @@ export const StyledNav = styled.nav`
 
     .link-item {
         padding: 0.5rem 1rem;
-        border: 1px solid transparent;
-        border-radius: 50%;
-        aspect-ratio: 1;
+        border-bottom: 1px solid transparent;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -48,5 +46,11 @@ export const StyledNav = styled.nav`
     .link-item--active {
         border-color: #000;
         font-family: var(--font-extra-bold);
+    }
+
+    @media ${({ theme }) => theme.media.mobile} {
+        .link-item {
+            padding: 0;
+        }
     }
 `;
