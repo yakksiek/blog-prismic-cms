@@ -11,6 +11,22 @@ export const StyledArticleItem = styled.li`
         'picture body'
         'picture footer';
 
+    @media ${({ theme }) => theme.media.tablet} {
+        grid-template-columns: 1fr 2fr;
+    }
+
+    @media ${({ theme }) => theme.media.mobile} {
+        padding: 1.5rem 0;
+        grid-template-columns: 1fr;
+        grid-template-rows: min-content min-content 2rem;
+        grid-row-gap: 1rem;
+
+        grid-template-areas:
+            'picture'
+            'body'
+            'footer';
+    }
+
     ${({ $variant }) =>
         $variant === 'block' &&
         css`
@@ -27,27 +43,15 @@ export const StyledArticleItem = styled.li`
                 'footer'
                 'picture'
                 'body';
-        `}
 
-    ${({ $variant }) =>
-        $variant !== 'block' &&
-        css`
             @media ${({ theme }) => theme.media.tablet} {
-                grid-template-columns: 1fr 2fr;
+                grid-template-columns: 1fr;
+            }
+
+            @media ${({ theme }) => theme.media.mobile} {
+                padding: 1.5rem;
             }
         `}
-
-    @media ${({ theme }) => theme.media.mobile} {
-        padding: 1.5rem;
-        grid-template-columns: 1fr;
-        grid-template-rows: min-content min-content 2rem;
-        grid-row-gap: 1rem;
-
-        grid-template-areas:
-            'picture'
-            'body'
-            'footer';
-    }
 `;
 
 export const StyledHeaderArticle = styled.header`
