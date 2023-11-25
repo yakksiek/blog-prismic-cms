@@ -3,7 +3,6 @@ import { Switch } from 'react-router-dom';
 import * as prismicH from '@prismicio/helpers';
 import { Route } from 'react-router-dom';
 
-import Hero from '../components/Hero';
 import SortedArticles from '../components/SortedArticles/SortedArticles';
 import ArticlePage from './ArticlePage';
 
@@ -16,13 +15,13 @@ function Blog() {
 
     return (
         <>
-            <Hero sectionName='Blog' categoriesArr={categoriesArr} variant='light' />
+            
             <Switch>
                 <Route exact path='/blog'>
-                    <SortedArticles articles={posts} />
+                    <SortedArticles articles={posts} categories={categoriesArr} />
                 </Route>
                 <Route path='/blog/category/:category'>
-                    <SortedArticles articles={posts} />
+                    <SortedArticles articles={posts} categories={categoriesArr} />
                 </Route>
                 <Route path='/blog/article/:articleUID'>
                     <ArticlePage />

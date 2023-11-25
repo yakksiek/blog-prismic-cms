@@ -15,10 +15,11 @@ function ArticlePage() {
 
     const [posts] = useAllPrismicDocumentsByType('post');
     const { articleUID } = useParams();
+    
     if (!posts) return;
 
     const article = posts.find(item => item.uid === articleUID);
-    console.log(article);
+
     if (!article) {
         return <Redirect to='/404.html' />;
     }
