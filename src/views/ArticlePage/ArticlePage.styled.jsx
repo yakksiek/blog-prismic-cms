@@ -72,10 +72,6 @@ export const StyledBody = styled.div`
         flex-direction: column;
         justify-content: flex-start;
         align-items: end;
-
-        /* .meta__item--category {
-            margin: 0;
-        } */
     }
 
     .body__text-container {

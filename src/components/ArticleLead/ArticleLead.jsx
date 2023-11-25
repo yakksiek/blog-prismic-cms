@@ -1,8 +1,10 @@
-/* eslint-disable react/prop-types */
 import * as h from '../../helpers';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 import ArticleMeta from './components/ArticleMeta';
+import heroArticlePropTypes from '../../propTypes/articleDataPropTypes';
+
 import { StyledArticleItem, StyledHeaderArticle, StyledImageWrapper, StyledFooter } from './ArticleLead.styled';
 
 function ArticleLead({ data, variant, showMetaLabels }) {
@@ -26,5 +28,15 @@ function ArticleLead({ data, variant, showMetaLabels }) {
         </StyledArticleItem>
     );
 }
+
+ArticleLead.defaultPropTypes = {
+    variant: '',
+};
+
+ArticleLead.propTypes = {
+    data: heroArticlePropTypes,
+    variant: PropTypes.string,
+    showMetaLabels: PropTypes.bool.isRequired,
+};
 
 export default ArticleLead;

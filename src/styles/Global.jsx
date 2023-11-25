@@ -65,14 +65,6 @@ const GlobalStyles = createGlobalStyle`
     cursor: pointer
   }
 
-  /* .margin-bottom {
-    margin-bottom: 2rem;
-  }
-
-  .margin-bottom-large {
-    margin-bottom: 4rem;
-  } */
-
 `;
 
 export default GlobalStyles;
