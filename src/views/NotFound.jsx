@@ -7,7 +7,7 @@ function NotFound() {
         <>
             <PageNavigation pageName='' />
             <p style={{ marginTop: '1rem' }}>
-                Page not found. Go back{' '}
+                Page not found. Go back
                 <strong>
                     <Link to='/'>Home</Link>
                 </strong>
