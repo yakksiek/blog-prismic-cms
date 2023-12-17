@@ -43,6 +43,9 @@ The project uses [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/
 
 -   **ArticleLead Component**: This component is not only scalable but also offers two layout variants based on props, providing flexibility in presentation.
 
+![article lead 1 screenshot](src/images/articlelead1.png)
+![article lead 2 screenshot](src/images/articlelead2.png)
+
 &nbsp;
 
 -   **Responsive Font Scaling**: Page header fonts are designed to scale with page size, ensuring readability and aesthetic appeal across devices.
@@ -71,32 +74,59 @@ const StyledH1 = styled.h1`
 
 &nbsp;
 
--   **Custom Pagination**: Built from scratch, the pagination feature includes two layout variants (prevButton/nextButton & numbers) for enhanced navigation.
+-   **Custom Pagination**: Built from scratch, the pagination feature includes two layout variants (prevButton/nextButton, numbers or both) for enhanced navigation.
 
+```javascript
+export function generatePaginationData(currentPage, limit, length) {
+    const pages = Math.ceil(length / limit);
+
+    const begin = limit * (currentPage - 1);
+    const end = currentPage * limit;
+
+    const prevPage = currentPage > 1 ? currentPage - 1 : 1;
+    const nextPage = currentPage < pages ? currentPage + 1 : pages;
+
+    const generatePageNumbers = () => {
+        const range = [];
+        const rangeWithDots = [];
+
+        for (let i = 1; i <= pages; i++) {
+            if (i === 1 || i === pages || i === currentPage || (i >= currentPage - 1 && i <= currentPage + 1)) {
+                range.push(i);
+            }
+        }
+
+        let l = null;
+        for (let i of range) {
+            if (l) {
+                if (i - l === 2) {
+                    rangeWithDots.push(l + 1);
+                } else if (i - l !== 1) {
+                    rangeWithDots.push('...'); //
+                }
+            }
+            rangeWithDots.push(i);
+            l = i;
+        }
+
+        return rangeWithDots;
+    };
+
+    const isPrevDisabled = currentPage <= 1;
+    const isNextDisabled = currentPage >= pages;
+
+    return {
+        prevPage,
+        nextPage,
+        pageNumbers: generatePageNumbers(),
+        isPrevDisabled,
+        isNextDisabled,
+        pages,
+        begin,
+        end,
+    };
+}
 ```
-some example code
-
-more code :)
-```
-
-&nbsp;
-
--   three
-
-| Issue | Solution             |     |
-| ----- | -------------------- | --- |
-| one   | `short code example` |     |
-| two   | `short code example` |     |
-| thre  | `short code example` |     |
-
-&nbsp;
-
--   four - some shortcut <kbd>Ctrl</kbd> + <kbd>C</kbd>
-
-&nbsp;
-
--   five - example with a screenshot
-    <img alt='what it is' src="https://via.placeholder.com/500x200" />
 
 &nbsp;
 
@@ -109,7 +139,7 @@ more code :)
 
 ## 🙋‍♂️ Feel free to contact me
 
-Write sth nice ;) Find me on...
+Write sth nice ;) Find me on [LinkedIn ](https://www.linkedin.com/in/marcin-kulbicki-426817a4/) or [Instagram](https://www.instagram.com/yakksiek/)
 
 &nbsp;
 
