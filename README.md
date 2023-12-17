@@ -1,70 +1,96 @@
-> ⭐ **\*README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!\***
->
-> 🎁 _Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**._
+![a main page screenshot](src/images/main-page-screenshot.png)
+
+# Project Name
+
+See the live version of [Project Name](https://devmentor.pl).
+
+1-3 sentences about the project...
+
+**Main features**:
+
+-   **Scalable Architecture**: Designed to handle growing content and user base efficiently.
+-   **Prismic as Headless CMS**: Utilizes Prismic for flexible and powerful content management.
+-   **Minimalistic Layout**: Focuses on content, providing a clean and distraction-free reading environment.
+-   **Header Article Feature**: Offers the option to highlight a header article on the landing page, enhancing content visibility.
 
 &nbsp;
 
-# Headless CMS
+## 💡 Technologies
 
-[Headless CMS](https://www.unity.pl/blog/co-warto-wiedziec-o-headless-cms/) to narzędzie, które pozwala tworzyć zawartość strony bez potrzeby budowania dedykowanego panelu administracyjnego.
-
-Przy pomocy odpowiedniego [UI](https://en.wikipedia.org/wiki/User_interface_design) możesz „wyklikać” potrzebne pola, które stworzą strukturę dla zawartości strony.
-
-Treści i zasoby uzupełnia się przez wygodny formularz (możesz to robić Ty, klient czy pracownik), a następnie pobiera przez API.
-
-Headless CMS-y są bardzo wygodne dla programistów front-end, którzy nie chcą tracić czasu na rozwiązania back-endowe.
-
-## Prismic
-
-Twoim zadaniem będzie wykorzystać headless CMS – [Prismic](https://prismic.io/).
-
-## API
-
-Utwórz blog, którego zawartość będzie pobierana przez [API Prismica](https://prismic.io/docs/technologies/introduction-to-the-content-query-api).
-
-Dokumentacja zawiera opis narzędzi przeznaczonych dla danej technologii, np. [JavaScriptu](https://prismic.io/docs/technologies/integrating-with-an-existing-project-javascript), a nawet [Reacta](https://prismic.io/docs/technologies/start-a-prismic-project-from-scratch-with-reactjs).
-
-Udostępnia również [przydatne narzędzie](https://prismic.io/docs/technologies/the-rest-api-browser) do testowania zapytań pod adresem: `[nazwa-przestrzeni].prismic.io/api`.
-
-> **Uwaga:** Być może zechcesz skorzystać z `create-react-app`. Pamiętaj wówczas, że od wersji 18 Reacta przy korzystaniu ze StrictMode w trybie developerskim możesz zauważyć dwukrotne uruchomienie hooka `useEffect()` lub metody `.componentDidMount()`. Zamiast wyłączać StrictMode, możesz zastosować [dobre praktyki fetchowania danych](https://beta.reactjs.org/learn/synchronizing-with-effects#fetching-data).
-
-## Podstawowe założenia
-
-Blog powinien posiadać wpisy, które zawierają co najmniej:
-
--   tytuł
--   wstęp
--   zawartość
--   zdjęcie
--   [slug/alias](https://webwavecms.com/blog/slug)
--   kategorie.
-
-> **Podpowiedź:** Najlepiej będzie, jeśli utworzysz w [panelu](https://prismic.io/dashboard) dwa `Custom Type` określane mianem `Repeatable Type`, tj. `post`oraz `category`, i powiążesz je między sobą przy pomocy `Content relationship`. Możesz też wykorzystać `Group`, jeśli do jednego wpisu będziesz chciał przyporządkować kilka kategorii.
-
-### React Router DOM
-
-Największy nacisk w tym projekcie powinieneś położyć na odpowiednie przygotowanie adresów URL – tak aby były one dobrze napisane pod względem UX.
-
-Może warto zrobić listę kategorii, które pozwolą użytkownikowi czytać tylko interesujące go materiały.
-
-Może warto również dodać do adresu URL datę publikacji wpisu lub przynajmniej rok i miesiąc – aby móc wyświetlać artykuły z danego przedziału czasowego.
-
-Na przykład `/2020/11/` wyświetli wszystkie artykuły opublikowane w listopadzie 2020 r.
-
-Pamiętaj też o odpowiedniej **paginacji**. Podziel wyświetlanie zawartości na części, gdzie na jednej podstronie widać maksymalnie 6 wpisów.
-
-### Przykłady
-
-W dokumentacji Prismica znajdziesz [przykłady implementacji dla Reacta](https://prismic.io/docs/technologies/example-projects-reactjs), np. [prosty blog](https://react-blog-demo.netlify.app/) czy [blog z kilkoma podstronami](https://react-website-demo.netlify.app/).
-
-Proponuję zapoznać się z nimi, zanim przejdziesz do własnej implementacji.
-
-W przykładach znajdziesz również wykorzystanie przydatnego narzędzia [React Helmet](https://www.npmjs.com/package/react-helmet), które pozwala w wygodny sposób zarządzać elementami zapisanym w `<head>`, np. `<title>`.
+![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
+![React Router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Vite](https://img.shields.io/badge/vite-%23646CFF.svg?style=for-the-badge&logo=vite&logoColor=white)
+![ESlint](https://img.shields.io/badge/ESLint-4B3263?style=for-the-badge&logo=eslint&logoColor=white)
+![Babel](https://img.shields.io/badge/Babel-F9DC3e?style=for-the-badge&logo=babel&logoColor=black)
 
 &nbsp;
 
-> ⭐ **\*README** to coś więcej niż opis. Poprzez nie **pokazujesz swoje mocne strony** – swoją dokładność, sposób myślenia i podejście do rozwiązywania problemów. Niech Twoje README pokaże, że masz **świetne predyspozycje do rozwoju!\***
->
-> 🎁 _Zacznij od razu. Skorzystaj z **[szablonu README i wskazówek](https://github.com/devmentor-pl/readme-template)**._
->
-> > > > > > > origin/master
+## 💿 Installation
+
+The project uses [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/). Having them installed, type into the terminal: `npm i`.
+
+&nbsp;
+
+## 🤔 Solutions provided in the project
+
+**Custom Hook for Top Scrolling**: A custom hook enables automatic scrolling to the top of the page when navigating via links, improving user experience.
+
+&nbsp;
+
+-   **ArticleLead Component**: This component is not only scalable but also offers two layout variants based on props, providing flexibility in presentation.
+
+&nbsp;
+
+-   **Responsive Font Scaling**: Page header fonts are designed to scale with page size, ensuring readability and aesthetic appeal across devices.
+
+&nbsp;
+
+-   **Custom Pagination**: Built from scratch, the pagination feature includes two layout variants (prevButton/nextButton & numbers) for enhanced navigation.
+
+```
+some example code
+
+more code :)
+```
+
+&nbsp;
+
+-   three
+
+| Issue | Solution             |     |
+| ----- | -------------------- | --- |
+| one   | `short code example` |     |
+| two   | `short code example` |     |
+| thre  | `short code example` |     |
+
+&nbsp;
+
+-   four - some shortcut <kbd>Ctrl</kbd> + <kbd>C</kbd>
+
+&nbsp;
+
+-   five - example with a screenshot
+    <img alt='what it is' src="https://via.placeholder.com/500x200" />
+
+&nbsp;
+
+## 💭 Possible future features
+
+-   **Long Reads Section**: Implementing a selection for in-depth, long-form articles.
+-   **Bookmarking Feature**: Allowing users to bookmark and revisit their favorite articles.
+
+&nbsp;
+
+## 🙋‍♂️ Feel free to contact me
+
+Write sth nice ;) Find me on...
+
+&nbsp;
+
+## 👏 Thanks / Special thanks / Credits
+
+Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) – for providing me with this task and for code review.
