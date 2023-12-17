@@ -4,7 +4,7 @@
 
 See the live version of [Project Name](https://devmentor.pl).
 
-1-3 sentences about the project...
+This project is a scalable, minimalistic blog platform built using modern web development technologies. It leverages Prismic as a headless CMS, allowing for easy content management and integration. React Router v5 and StyledComponents are used to create a seamless and responsive user experience. The layout is intentionally minimalistic, focusing on content readability and user engagement.
 
 **Main features**:
 
