@@ -2,7 +2,7 @@
 
 # Project Name
 
-See the live version of [Project Name](https://devmentor.pl).
+See the live version of [POSTMAG](https://yakksiek.github.io/blog-prismic-cms/#/).
 
 This project is a scalable, minimalistic blog platform built using modern web development technologies. It leverages Prismic as a headless CMS, allowing for easy content management and integration. React Router v5 and StyledComponents are used to create a seamless and responsive user experience. The layout is intentionally minimalistic, focusing on content readability and user engagement.
 
@@ -46,6 +46,28 @@ The project uses [node](https://nodejs.org/en/) and [npm](https://www.npmjs.com/
 &nbsp;
 
 -   **Responsive Font Scaling**: Page header fonts are designed to scale with page size, ensuring readability and aesthetic appeal across devices.
+
+```javascript
+const StyledH1 = styled.h1`
+    font-family: var(--font-extra-bold);
+    letter-spacing: 5px;
+    font-size: 11rem;
+    font-size: clamp(5.5rem, 17.5vw, 17rem);
+    text-align: center;
+    margin-bottom: 0;
+
+    @media ${({ theme }) => theme.media.tablet} {
+        font-size: 5.5rem;
+        font-size: clamp(3rem, 16vw, 12rem);
+    }
+
+    @media ${({ theme }) => theme.media.mobile} {
+        padding: 1rem 0;
+        font-size: 3.5rem;
+        font-size: 15.2vw;
+    }
+`;
+```
 
 &nbsp;
 

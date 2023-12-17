@@ -9,9 +9,6 @@ SectionHeading.propTypes = {
     children: PropTypes.node.isRequired,
 };
 
-// tutaj się za dużo dzieje
-// nie wiedziałem, jak dynamicznie ustawić h1
-// żeby zajmował jak najwięcej miejsca
 const StyledH1 = styled.h1`
     font-family: var(--font-extra-bold);
     letter-spacing: 5px;
