@@ -1,6 +1,6 @@
 ![a main page screenshot](src/images/main-page-screenshot.png)
 
-# Project Name
+# POSTMAG - blog website with Prismic CMS
 
 See the live version of [POSTMAG](https://yakksiek.github.io/blog-prismic-cms/#/).
 
