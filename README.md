@@ -146,4 +146,3 @@ Write sth nice ;) Find me on [LinkedIn ](https://www.linkedin.com/in/marcin-kulb
 ## 👏 Credits
 
 Thanks to my [Mentor - devmentor.pl](https://devmentor.pl/) – for providing me with this task and for code review.
-Layout based on the [template fyrre](https://templates.gola.io/template/fyrre)
